@@ -50,6 +50,7 @@ Finally, connect OUT1 of the opto-isolator to the *RX* (yes, not TX!) connection
 
 ### Using the multimeter
 After making the hardware modifications, you can still use the multimeter in standalone mode (as usual).
+You may not use the multimeter to measure voltages above 60V over PE anymore!
 If you want to connect it to your PC, just plug in the USB serial converter and you are ready to use the software.
 You can use the device manager on Windows or dmesg on Linux to find the correct port. On Linux it is usually /dev/ttyUSB0.
 
