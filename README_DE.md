@@ -36,7 +36,7 @@ Diese Litzen können dann z.B. über ein kleines Loch auf der Rückseite des Geh
 * Optokoppler (https://www.sparkfun.com/products/9118 - *NICHT* für Spannungen > 60V verwenden!)
 
 ### Testpunkte
-Im folgenden Bild sind the zwei Testpunkte auf der Multimeterplatine erkennbar, mit denen der Optokoppler verbunden wird:
+Im folgenden Bild sind die zwei Testpunkte auf der Multimeterplatine erkennbar, mit denen der Optokoppler verbunden wird:
 
 ![TX und GND sind beschriftet und befinden sich im oberen, rechten Teil der Platine](https://www.mikrocontroller.net/attachment/450706/Verbindungen.jpg)
 
