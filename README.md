@@ -11,6 +11,7 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Bargraph display for all supported modes
 * Recording of values to a CSV formatted file
 * Custom acquisition speeds
+* Runs on Windows 7, 8, 10 (urgh) and Linux (via Mono: https://www.mono-project.com/)
 * German and US/international CSV formats selectable
 * Automatic configuration of the serial interface
 * Synchronization to the data stream, graceful error handling and display blanking on error or timeout
@@ -19,6 +20,9 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Clicking on the readout display copies the currently displayed value to the clipboard
 * Window can be set to be always ontop of all other windows
 * Multiple instances can be run at the same time to display and record different multimeters
+
+## Screenshot
+![Screenshot of the software](https://www.mikrocontroller.net/attachment/450704/ParksideView-v11.PNG)
 
 ## Hardware
 To use the software, a small and simple hardware modification has to be done to the multimeter.
@@ -35,7 +39,7 @@ This can for instance be accomplished by drilling a tiny hole into the backside 
 ### Test points
 The image below shows the two test points to connect the opto-isolator to:
 
-![TX -> RX, GND -> GND](https://www.mikrocontroller.net/attachment/450706/Verbindungen.jpg)
+![TX and GND are in the upper right of the PCB and are clearly labeled](https://www.mikrocontroller.net/attachment/450706/Verbindungen.jpg)
 
 ### Soldering
 To connect the multimeter to your PC, solder a wire from the TX test point to the IN1 pad of the opto-isolator.
