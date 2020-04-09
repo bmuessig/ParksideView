@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ParksideView
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Application entry point.

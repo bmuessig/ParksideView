@@ -36,13 +36,13 @@
             this.modeLabel = new System.Windows.Forms.Label();
             this.readoutPanel = new System.Windows.Forms.Panel();
             this.recordToggleButton = new System.Windows.Forms.Button();
-            this.acquireGroup = new System.Windows.Forms.GroupBox();
-            this.acquirePauseButton = new System.Windows.Forms.Button();
+            this.acquisitionGroup = new System.Windows.Forms.GroupBox();
+            this.acquisitionPauseButton = new System.Windows.Forms.Button();
             this.intervalLabel = new System.Windows.Forms.Label();
             this.csvFormatGroup = new System.Windows.Forms.GroupBox();
             this.csvFormatUSRadio = new System.Windows.Forms.RadioButton();
             this.csvFormatDERadio = new System.Windows.Forms.RadioButton();
-            this.acquireStatusLabel = new System.Windows.Forms.Label();
+            this.acquisitionStatusLabel = new System.Windows.Forms.Label();
             this.intervalNumeric = new System.Windows.Forms.NumericUpDown();
             this.connectionGroup = new System.Windows.Forms.GroupBox();
             this.connectButton = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             this.recordSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.readoutLayout.SuspendLayout();
             this.readoutPanel.SuspendLayout();
-            this.acquireGroup.SuspendLayout();
+            this.acquisitionGroup.SuspendLayout();
             this.csvFormatGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.intervalNumeric)).BeginInit();
             this.connectionGroup.SuspendLayout();
@@ -146,44 +146,43 @@
             this.recordToggleButton.Name = "recordToggleButton";
             this.recordToggleButton.Size = new System.Drawing.Size(101, 22);
             this.recordToggleButton.TabIndex = 5;
-            this.recordToggleButton.Text = "Aufzeichnen";
+            this.recordToggleButton.Text = "<Record>";
             this.recordToggleButton.UseVisualStyleBackColor = true;
             this.recordToggleButton.Click += new System.EventHandler(this.recordToggleButton_Click);
             // 
-            // acquireGroup
+            // acquisitionGroup
             // 
-            this.acquireGroup.Controls.Add(this.acquirePauseButton);
-            this.acquireGroup.Controls.Add(this.intervalLabel);
-            this.acquireGroup.Controls.Add(this.csvFormatGroup);
-            this.acquireGroup.Controls.Add(this.acquireStatusLabel);
-            this.acquireGroup.Controls.Add(this.intervalNumeric);
-            this.acquireGroup.Controls.Add(this.recordToggleButton);
-            this.acquireGroup.Location = new System.Drawing.Point(12, 224);
-            this.acquireGroup.Name = "acquireGroup";
-            this.acquireGroup.Size = new System.Drawing.Size(310, 96);
-            this.acquireGroup.TabIndex = 4;
-            this.acquireGroup.TabStop = false;
-            this.acquireGroup.Text = "Datenerfassung";
+            this.acquisitionGroup.Controls.Add(this.acquisitionPauseButton);
+            this.acquisitionGroup.Controls.Add(this.intervalLabel);
+            this.acquisitionGroup.Controls.Add(this.csvFormatGroup);
+            this.acquisitionGroup.Controls.Add(this.acquisitionStatusLabel);
+            this.acquisitionGroup.Controls.Add(this.intervalNumeric);
+            this.acquisitionGroup.Controls.Add(this.recordToggleButton);
+            this.acquisitionGroup.Location = new System.Drawing.Point(12, 224);
+            this.acquisitionGroup.Name = "acquisitionGroup";
+            this.acquisitionGroup.Size = new System.Drawing.Size(310, 96);
+            this.acquisitionGroup.TabIndex = 4;
+            this.acquisitionGroup.TabStop = false;
+            this.acquisitionGroup.Text = "<Acquisition>";
             // 
-            // acquirePauseButton
+            // acquisitionPauseButton
             // 
-            this.acquirePauseButton.Location = new System.Drawing.Point(116, 18);
-            this.acquirePauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.acquirePauseButton.Name = "acquirePauseButton";
-            this.acquirePauseButton.Size = new System.Drawing.Size(64, 22);
-            this.acquirePauseButton.TabIndex = 6;
-            this.acquirePauseButton.Text = "Pause";
-            this.acquirePauseButton.UseVisualStyleBackColor = true;
-            this.acquirePauseButton.Click += new System.EventHandler(this.acquirePauseButton_Click);
+            this.acquisitionPauseButton.Location = new System.Drawing.Point(116, 18);
+            this.acquisitionPauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.acquisitionPauseButton.Name = "acquisitionPauseButton";
+            this.acquisitionPauseButton.Size = new System.Drawing.Size(64, 22);
+            this.acquisitionPauseButton.TabIndex = 6;
+            this.acquisitionPauseButton.Text = "<P/C>";
+            this.acquisitionPauseButton.UseVisualStyleBackColor = true;
+            this.acquisitionPauseButton.Click += new System.EventHandler(this.acquisitionPauseButton_Click);
             // 
             // intervalLabel
             // 
-            this.intervalLabel.AutoSize = true;
             this.intervalLabel.Location = new System.Drawing.Point(7, 50);
             this.intervalLabel.Name = "intervalLabel";
             this.intervalLabel.Size = new System.Drawing.Size(94, 13);
             this.intervalLabel.TabIndex = 10;
-            this.intervalLabel.Text = "Intervall: 500ms *";
+            this.intervalLabel.Text = "<Interval>";
             // 
             // csvFormatGroup
             // 
@@ -194,7 +193,7 @@
             this.csvFormatGroup.Size = new System.Drawing.Size(107, 60);
             this.csvFormatGroup.TabIndex = 8;
             this.csvFormatGroup.TabStop = false;
-            this.csvFormatGroup.Text = "CSV-Format";
+            this.csvFormatGroup.Text = "<CSV format>";
             // 
             // csvFormatUSRadio
             // 
@@ -218,14 +217,13 @@
             this.csvFormatDERadio.Text = "DE: 0,12; 0,23";
             this.csvFormatDERadio.UseVisualStyleBackColor = true;
             // 
-            // acquireStatusLabel
+            // acquisitionStatusLabel
             // 
-            this.acquireStatusLabel.AutoSize = true;
-            this.acquireStatusLabel.Location = new System.Drawing.Point(6, 76);
-            this.acquireStatusLabel.Name = "acquireStatusLabel";
-            this.acquireStatusLabel.Size = new System.Drawing.Size(266, 13);
-            this.acquireStatusLabel.TabIndex = 5;
-            this.acquireStatusLabel.Text = "Status: Pausiert. Aufzeichnung ({0} seit 1h 25m 13s)";
+            this.acquisitionStatusLabel.Location = new System.Drawing.Point(6, 76);
+            this.acquisitionStatusLabel.Name = "acquisitionStatusLabel";
+            this.acquisitionStatusLabel.Size = new System.Drawing.Size(292, 13);
+            this.acquisitionStatusLabel.TabIndex = 5;
+            this.acquisitionStatusLabel.Text = "<Acquisition-Status>";
             // 
             // intervalNumeric
             // 
@@ -264,7 +262,7 @@
             this.connectionGroup.Size = new System.Drawing.Size(199, 69);
             this.connectionGroup.TabIndex = 0;
             this.connectionGroup.TabStop = false;
-            this.connectionGroup.Text = "Verbindung";
+            this.connectionGroup.Text = "<Connection>";
             // 
             // connectButton
             // 
@@ -272,18 +270,17 @@
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(45, 23);
             this.connectButton.TabIndex = 3;
-            this.connectButton.Text = "Start";
+            this.connectButton.Text = "<S/P>";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
             // connectionStatusLabel
             // 
-            this.connectionStatusLabel.AutoSize = true;
             this.connectionStatusLabel.Location = new System.Drawing.Point(6, 45);
             this.connectionStatusLabel.Name = "connectionStatusLabel";
-            this.connectionStatusLabel.Size = new System.Drawing.Size(103, 13);
+            this.connectionStatusLabel.Size = new System.Drawing.Size(135, 13);
             this.connectionStatusLabel.TabIndex = 3;
-            this.connectionStatusLabel.Text = "Status: Verbunden";
+            this.connectionStatusLabel.Text = "<Connection-Status>";
             // 
             // refreshPortsButton
             // 
@@ -292,18 +289,17 @@
             this.refreshPortsButton.Name = "refreshPortsButton";
             this.refreshPortsButton.Size = new System.Drawing.Size(45, 23);
             this.refreshPortsButton.TabIndex = 2;
-            this.refreshPortsButton.Text = "Aktualisieren";
+            this.refreshPortsButton.Text = "<Ref>";
             this.refreshPortsButton.UseVisualStyleBackColor = true;
             this.refreshPortsButton.Click += new System.EventHandler(this.refreshPortsButton_Click);
             // 
             // portLabel
             // 
-            this.portLabel.AutoSize = true;
             this.portLabel.Location = new System.Drawing.Point(6, 20);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(31, 13);
             this.portLabel.TabIndex = 1;
-            this.portLabel.Text = "Port:";
+            this.portLabel.Text = "<Port>";
             // 
             // portsListBox
             // 
@@ -323,7 +319,7 @@
             this.windowGroup.Size = new System.Drawing.Size(103, 69);
             this.windowGroup.TabIndex = 11;
             this.windowGroup.TabStop = false;
-            this.windowGroup.Text = "Fenster";
+            this.windowGroup.Text = "<Window>";
             // 
             // minimizeButton
             // 
@@ -331,7 +327,7 @@
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(87, 23);
             this.minimizeButton.TabIndex = 13;
-            this.minimizeButton.Text = "Minimieren";
+            this.minimizeButton.Text = "<Minimize>";
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
@@ -340,9 +336,9 @@
             this.topMostCheck.AutoSize = true;
             this.topMostCheck.Location = new System.Drawing.Point(11, 18);
             this.topMostCheck.Name = "topMostCheck";
-            this.topMostCheck.Size = new System.Drawing.Size(71, 17);
+            this.topMostCheck.Size = new System.Drawing.Size(89, 17);
             this.topMostCheck.TabIndex = 12;
-            this.topMostCheck.Text = "Deckend";
+            this.topMostCheck.Text = "<Top most>";
             this.topMostCheck.UseVisualStyleBackColor = true;
             this.topMostCheck.CheckedChanged += new System.EventHandler(this.topMostCheck_CheckedChanged);
             // 
@@ -388,7 +384,7 @@
             this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.windowGroup);
             this.Controls.Add(this.connectionGroup);
-            this.Controls.Add(this.acquireGroup);
+            this.Controls.Add(this.acquisitionGroup);
             this.Controls.Add(this.readoutPanel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -397,18 +393,16 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ParksideView v1.1";
+            this.Text = "ParksideView v1.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.readoutLayout.ResumeLayout(false);
             this.readoutLayout.PerformLayout();
             this.readoutPanel.ResumeLayout(false);
-            this.acquireGroup.ResumeLayout(false);
-            this.acquireGroup.PerformLayout();
+            this.acquisitionGroup.ResumeLayout(false);
             this.csvFormatGroup.ResumeLayout(false);
             this.csvFormatGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.intervalNumeric)).EndInit();
             this.connectionGroup.ResumeLayout(false);
-            this.connectionGroup.PerformLayout();
             this.windowGroup.ResumeLayout(false);
             this.windowGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -423,8 +417,8 @@
         private System.Windows.Forms.Label modeLabel;
         private System.Windows.Forms.Panel readoutPanel;
         private System.Windows.Forms.Button recordToggleButton;
-        private System.Windows.Forms.GroupBox acquireGroup;
-        private System.Windows.Forms.Label acquireStatusLabel;
+        private System.Windows.Forms.GroupBox acquisitionGroup;
+        private System.Windows.Forms.Label acquisitionStatusLabel;
         private System.Windows.Forms.NumericUpDown intervalNumeric;
         private System.Windows.Forms.GroupBox connectionGroup;
         private System.Windows.Forms.Label intervalLabel;
@@ -439,7 +433,7 @@
         private System.Windows.Forms.CheckBox topMostCheck;
         private System.Windows.Forms.Label copyrightLabel;
         private System.Windows.Forms.Button minimizeButton;
-        private System.Windows.Forms.Button acquirePauseButton;
+        private System.Windows.Forms.Button acquisitionPauseButton;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Timer acquireTimer;
         private System.Windows.Forms.ProgressBar bargraphBar;

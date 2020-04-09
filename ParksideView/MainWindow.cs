@@ -8,7 +8,7 @@ using System.IO;
 
 namespace ParksideView
 {
-    public partial class MainWindow : Form
+    internal partial class MainWindow : Form
     {
         private bool isConnected = false, isPaused = false, isRecording = false, isTimerUpdatePending = false, isAlive = true;
         private StringBuilder recordingBuffer = new StringBuilder();
@@ -21,10 +21,25 @@ namespace ParksideView
             // Initialize the controls
             InitializeComponent();
 
+            // Translate the static parts of the UI
+            // Connection group
+            connectionGroup.Text = Language.ConnectionHeading;
+            portLabel.Text = Language.PortLabel;
+            refreshPortsButton.Text = Language.RefreshButton;
+            // Window group
+            windowGroup.Text = Language.WindowHeading;
+            topMostCheck.Text = Language.TopMostCheckBox;
+            minimizeButton.Text = Language.MinimizeButton;
+            // Acquisition group
+            acquisitionGroup.Text = Language.AcquisitionHeading;
+            intervalLabel.Text = Language.Interval;
+            // CSV group
+            csvFormatGroup.Text = Language.CSVFormatHeading;
+
             // Refresh the ports list
             RefreshPorts();
 
-            // Setup the UI
+            // Setup the UI (handles translation of the dynamic parts)
             ChangeUI(false, false, false);
             UpdateTimer();
         }
@@ -137,44 +152,44 @@ namespace ParksideView
                 switch (sample.Mode)
                 {
                     case Mode.Ampere:
-                        modeLabel.Text = "Strom";
+                        modeLabel.Text = Language.ModeCurrent;
                         break;
 
                     case Mode.AmpereMicro:
-                        modeLabel.Text = "Strom";
+                        modeLabel.Text = Language.ModeCurrent;
                         break;
 
                     case Mode.AmpereMilli:
-                        modeLabel.Text = "Strom";
+                        modeLabel.Text = Language.ModeCurrent;
                         break;
 
                     case Mode.ContinuityOhm:
-                        modeLabel.Text = "Kontinuität";
+                        modeLabel.Text = Language.ModeContinuity;
                         break;
 
                     case Mode.DiodeVolt:
-                        modeLabel.Text = "Diode";
+                        modeLabel.Text = Language.ModeDiode;
                         break;
 
                     case Mode.ResistanceOhm:
-                        modeLabel.Text = "Widerstand";
+                        modeLabel.Text = Language.ModeResistance;
                         break;
 
                     case Mode.VoltAC:
-                        modeLabel.Text = "Spannung (AC)";
+                        modeLabel.Text = Language.ModeVoltageAC;
                         break;
 
                     case Mode.VoltDC:
-                        modeLabel.Text = "Spannung (DC)";
+                        modeLabel.Text = Language.ModeVoltageDC;
                         break;
 
                     case Mode.Squarewave:
-                        modeLabel.Text = "Rechtecksignal";
+                        modeLabel.Text = Language.ModeSquarewave;
                         valueMode = false;
                         break;
 
                     default:
-                        modeLabel.Text = "Unbekannter Modus!";
+                        modeLabel.Text = Language.ModeUnknown;
                         valueMode = false;
                         validMode = false;
                         break;
@@ -296,7 +311,7 @@ namespace ParksideView
             Connect(portName);
         }
 
-        private void acquirePauseButton_Click(object sender, EventArgs e)
+        private void acquisitionPauseButton_Click(object sender, EventArgs e)
         {
             // Toggle the acquisition state
             if (isPaused)
@@ -378,8 +393,8 @@ namespace ParksideView
                 return;
 
             // Ask the user about copying the value into the clipboard
-            if (MessageBox.Show(string.Format("Wert \"{0}\" in die Zwischenablage kopieren?", value),
-                "Wert kopieren", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            if (MessageBox.Show(string.Format(Language.CopyValueText, value),
+                Language.CopyValueTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 Clipboard.SetText(value);
         }
 
@@ -411,11 +426,8 @@ namespace ParksideView
             catch (Exception ex)
             {
                 // If there was any error, exit, as there is no recovery from this
-                MessageBox.Show(string.Format(
-                    "Abrufen der Portliste fehlgeschlagen!\nDas Programm wird beendet.\n\nFehler: {0}", ex.Message),
-                    "Kritischer Fehler!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(Language.PortsListErrorText, ex.Message),
+                    Language.PortsListErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
@@ -442,11 +454,8 @@ namespace ParksideView
             if (error != null)
             {
                 // If there was any error, exit, as there is no recovery from this
-                MessageBox.Show(string.Format(
-                    "Port {0} konnte nicht geöffnet werden!\n\nFehler: {1}", portName, error.Message),
-                    "Fehler!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+                MessageBox.Show(string.Format(Language.ConnectionErrorText, portName, error.Message),
+                    Language.ConnectionErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ChangeUI(false);
                 return;
             }
@@ -514,35 +523,35 @@ namespace ParksideView
             recordingStart = DateTime.Now;
             
             // Write the model
-            recordingBuffer.Append("Model");
+            recordingBuffer.Append(Language.CSVModel);
             recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.Append("Parkside PDM300 C2");
+            recordingBuffer.Append("Parkside PDM-300-C2");
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
             // Write the version
-            recordingBuffer.Append("Software");
+            recordingBuffer.Append(Language.CSVSoftware);
             recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.AppendFormat("{0} {1} by Benedikt Muessig", Application.ProductName, Application.ProductVersion);
+            recordingBuffer.AppendFormat(Language.CSVVersionFormat, Application.ProductName, Application.ProductVersion);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
             // Write the date
-            recordingBuffer.Append("Datum");
+            recordingBuffer.Append(Language.CSVDate);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat("{0:00}.{1:00}.{2:0000}", recordingStart.Day, recordingStart.Month, recordingStart.Year);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
             // Write the time
-            recordingBuffer.Append("Uhrzeit");
+            recordingBuffer.Append(Language.CSVTime);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat("{0:00}:{1:00}:{2:00}:{3:000}",
                 recordingStart.Hour, recordingStart.Minute, recordingStart.Second, recordingStart.Millisecond);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
-            recordingBuffer.Append("Intervall (s)");
+            recordingBuffer.Append(Language.CSVInterval);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
                         "{0:E}", acquireTimer.Interval / 1000d);
@@ -551,11 +560,11 @@ namespace ParksideView
             recordingBuffer.AppendLine();
 
             // Write the CSV header (3 columns)
-            recordingBuffer.Append("Zeitdifferenz (s)");
+            recordingBuffer.Append(Language.CSVDelta);
             recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.Append("Wert");
+            recordingBuffer.Append(Language.CSVValue);
             recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.Append("Einheit");
+            recordingBuffer.Append(Language.CSVUnit);
             recordingBuffer.AppendLine();
 
             // Update the UI
@@ -592,8 +601,8 @@ namespace ParksideView
             while (true)
             {
                 while (recordSaveDialog.ShowDialog() != DialogResult.OK)
-                    if (MessageBox.Show(string.Format("Möchten Sie wirklich die {0} aufgezeichneten Datenpunkte ungespeichert verwerfen?", recordingCount),
-                        "Daten verwerfen", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (MessageBox.Show(string.Format(Language.DiscardDataText, recordingCount), Language.DiscardDataTitle,
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         return;
 
                 // Save the data
@@ -606,8 +615,7 @@ namespace ParksideView
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Speichern fehlgeschlagen!\nBitte versuchen Sie es erneut!", "Speichern fehlgeschlagen",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(Language.SavingFailedText, Language.SavingFailedTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -644,11 +652,11 @@ namespace ParksideView
             // Decide what to do with the UI
             refreshPortsButton.Enabled = !isConnected;
             portsListBox.Enabled = !isConnected;
-            connectButton.Text = isConnected ? "Stop" : "Start";
-            recordToggleButton.Text = (isRecording && isConnected) ? "Speichern" : "Aufzeichnen";
-            acquirePauseButton.Text = (isPaused && isConnected) ? "Weiter" : "Pause";
+            connectButton.Text = isConnected ? Language.StopButton : Language.StartButton;
+            recordToggleButton.Text = (isRecording && isConnected) ? Language.SaveButton : Language.RecordButton;
+            acquisitionPauseButton.Text = (isPaused && isConnected) ? Language.ContinueButton : Language.PauseButton;
             recordToggleButton.Enabled = isConnected;
-            acquirePauseButton.Enabled = isConnected;
+            acquisitionPauseButton.Enabled = isConnected;
             csvFormatGroup.Enabled = isConnected && !isRecording;
             intervalNumeric.Enabled = !isRecording;
 
@@ -668,17 +676,17 @@ namespace ParksideView
             // Handle idle
             if (!isConnected)
             {
-                connectionStatusLabel.Text = "Status: Nicht verbunden.";
-                acquireStatusLabel.Text = connectionStatusLabel.Text;
+                connectionStatusLabel.Text = Language.AcqStatusPrefix + Language.AcqStatusDisconnected;
+                acquisitionStatusLabel.Text = connectionStatusLabel.Text;
                 return;
             }
 
             // Always set the connected label
-            connectionStatusLabel.Text = "Status: Verbunden.";
+            connectionStatusLabel.Text = Language.AcqStatusPrefix + Language.AcqStatusConnected;
 
             // Assemble the acquire status text
-            StringBuilder statusBuilder = new StringBuilder("Status: ");
-            statusBuilder.Append(isAlive ? (isPaused ? "Pausiert." : "Laufend.") : "Stumm.");
+            StringBuilder statusBuilder = new StringBuilder(Language.AcqStatusPrefix);
+            statusBuilder.Append(isAlive ? (isPaused ? Language.AcqStatusPaused : Language.AcqStatusRunning) : Language.AcqStatusSilent);
             if (isRecording)
             {
                 // Calculate the time that has passed
@@ -686,11 +694,11 @@ namespace ParksideView
                 int seconds = recordingSpan.Seconds, minutes = recordingSpan.Minutes, hours = recordingSpan.Hours + recordingSpan.Days * 24;
 
                 // Update the builder
-                statusBuilder.AppendFormat(" Aufzeichnung ({0} seit {1:00}h {2:00}m {3:00}s).", recordingCount, hours, minutes, seconds);
+                statusBuilder.AppendFormat(Language.AcqStatusRecording, recordingCount, hours, minutes, seconds);
             }
 
             // Apply the label
-            acquireStatusLabel.Text = string.Copy(statusBuilder.ToString());
+            acquisitionStatusLabel.Text = string.Copy(statusBuilder.ToString());
             statusBuilder.Clear();
         }
 
