@@ -21,7 +21,7 @@ Diese Multimeter wurden im März 2020 international vom Discounter LIDL verkauft
 * Mehrere Instanzen des Programms können gleichzeitig verwendet werden, um mehrere Multimeter abzufragen
 
 ## Screenshot
-![Screenshot des Programms](https://www.mikrocontroller.net/attachment/450704/ParksideView-v11.PNG)
+![Screenshot des Programms](https://www.mikrocontroller.net/attachment/452192/PSV12_DE.PNG)
 
 ## Hardware
 Um die Software nutzen zu können, muss ein kleiner, einfacher Hardwareeingriff am Multimeter durchgeführt werden.
