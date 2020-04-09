@@ -22,7 +22,7 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Multiple instances can be run at the same time to display and record different multimeters
 
 ## Screenshot
-![Screenshot of the software](https://www.mikrocontroller.net/attachment/450704/ParksideView-v11.PNG)
+![Screenshot of the software](https://www.mikrocontroller.net/attachment/452192/PSV12_EN.PNG)
 
 ## Hardware
 To use the software, a small and simple hardware modification has to be done to the multimeter.
