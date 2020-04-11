@@ -6,6 +6,11 @@
     public enum Range : byte
     {
         /// <summary>
+        /// 0000 0000 (observed during startup)
+        /// </summary>
+        None = 0x0,
+
+        /// <summary>
         /// 0000 0001
         /// </summary>
         A = 0x1,

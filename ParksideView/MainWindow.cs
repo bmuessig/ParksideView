@@ -84,7 +84,7 @@ namespace ParksideView
             RefreshPorts();
         }
 
-        private void acquireTimer_Tick(object sender, EventArgs e)
+        private void acquisitionTimer_Tick(object sender, EventArgs e)
         {
             // Make sure that the state and meter objects are valid
             if (!isConnected || meter == null || !meter.IsConnected)
@@ -95,19 +95,19 @@ namespace ParksideView
             }
 
             // Stop the timer
-            acquireTimer.Stop();
+            acquisitionTimer.Stop();
 
             // Handle pause mode
             if (isPaused)
             {
                 // Discard the samples, start the timer again and continue
                 meter.Flush();
-                acquireTimer.Start();
+                acquisitionTimer.Start();
                 return;
             }
 
             // Check, if the maximum duration of missed screen updates has been exceeded
-            if ((blankCount - 1) * acquireTimer.Interval >= 1000)
+            if ((blankCount - 1) * acquisitionTimer.Interval >= 1000)
             {
                 // Clear the readout, bargraph and alive flag after a certain number of missed updates
                 isAlive = false;
@@ -133,7 +133,7 @@ namespace ParksideView
                     blankCount++;
 
                     // And turn the sampling on again
-                    acquireTimer.Start();
+                    acquisitionTimer.Start();
                     return;
                 }
 
@@ -278,7 +278,7 @@ namespace ParksideView
             }
 
             // Start the timer again
-            acquireTimer.Start();
+            acquisitionTimer.Start();
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -464,7 +464,7 @@ namespace ParksideView
             ChangeUI(true);
 
             // Start the timer
-            acquireTimer.Start();
+            acquisitionTimer.Start();
         }
 
         /// <summary>
@@ -477,7 +477,7 @@ namespace ParksideView
                 meter.Disconnect();
 
             // Stop the timer
-            acquireTimer.Stop();
+            acquisitionTimer.Stop();
 
             // Update the UI
             ChangeUI(false);
@@ -554,7 +554,7 @@ namespace ParksideView
             recordingBuffer.Append(Language.CSVInterval);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
-                        "{0:E}", acquireTimer.Interval / 1000d);
+                        "{0:E}", acquisitionTimer.Interval / 1000d);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
             recordingBuffer.AppendLine();
@@ -726,7 +726,7 @@ namespace ParksideView
         private void UpdateTimer()
         {
             isTimerUpdatePending = false;
-            acquireTimer.Interval = (int)intervalNumeric.Value * 500 + 50;
+            acquisitionTimer.Interval = (int)intervalNumeric.Value * 500 + 50;
         }
 
         /// <summary>

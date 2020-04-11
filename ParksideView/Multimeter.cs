@@ -36,7 +36,7 @@ namespace ParksideView
         {
             get
             {
-                return IsConnected && (IsSynchronized && port.BytesToRead >= 7 || !IsSynchronized && port.BytesToRead >= 10);
+                return IsConnected && (IsSynchronized && port.BytesToRead >= 8 || !IsSynchronized && port.BytesToRead >= 10);
             }
         }
         
@@ -167,10 +167,6 @@ namespace ParksideView
                     if (port.ReadByte() != 0xba)
                         continue;
 
-                    // Check the third byte
-                    if (port.ReadByte() != 0x01)
-                        continue;
-
                     // Set the synchronization flag and return success
                     IsSynchronized = true;
                     return true;
@@ -202,11 +198,12 @@ namespace ParksideView
                 // Clear the synchronization flag again
                 IsSynchronized = false;
 
-                // Allocate a temporary buffer
-                byte[] buffer = new byte[7];
+                // Allocate a temporary buffer and a checksum buffer
+                byte[] buffer = new byte[8];
+                ushort actualChecksum = 0;
 
-                // Attempt to read the seven bytes
-                for (int i = 0; i < 7; i++)
+                // Attempt to read the eight bytes
+                for (int i = 0; i < buffer.Length; i++)
                 {
                     // Read and validate the received data
                     int data = port.ReadByte();
@@ -215,14 +212,19 @@ namespace ParksideView
 
                     // Store the byte
                     buffer[i] = (byte)data;
+
+                    // Add packet bytes 2 to 7 (array bytes 0 to 5) to the checksum
+                    if (i <= 5)
+                        actualChecksum += (ushort)data;
                 }
 
+                // Assemble the expected checksum and the value
+                ushort expectedChecksum = unchecked((ushort)((buffer[6] << 8) | buffer[7]));
+                short value = unchecked((short)((buffer[4] << 8) | buffer[5]));
+
                 // Create the result packet
-                unchecked
-                {
-                    result = new Packet((Mode)buffer[0], (Range)buffer[1], (short)((buffer[3] << 8) | buffer[4]),
-                        new byte[3] { buffer[2], buffer[5], buffer[6] }, DateTime.Now);
-                }
+                result = new Packet((Mode)buffer[1], (Range)buffer[2], value, expectedChecksum == actualChecksum, 
+                    new byte[2] { buffer[0], buffer[3] }, DateTime.Now);
             }
             catch (Exception)
             {
@@ -351,6 +353,10 @@ namespace ParksideView
             unit = '\0';
             unitPrefix = '\0';
             negative = false;
+
+            // Validate the checksum first
+            if (!sample.ChecksumValid)
+                return false;
 
             // Switch the mode
             switch (sample.Mode)

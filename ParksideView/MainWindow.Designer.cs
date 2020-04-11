@@ -54,7 +54,7 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.topMostCheck = new System.Windows.Forms.CheckBox();
             this.copyrightLabel = new System.Windows.Forms.Label();
-            this.acquireTimer = new System.Windows.Forms.Timer(this.components);
+            this.acquisitionTimer = new System.Windows.Forms.Timer(this.components);
             this.bargraphBar = new System.Windows.Forms.ProgressBar();
             this.recordSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.readoutLayout.SuspendLayout();
@@ -355,10 +355,10 @@
             this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.copyrightLabel.Click += new System.EventHandler(this.copyrightLabel_Click);
             // 
-            // acquireTimer
+            // acquisitionTimer
             // 
-            this.acquireTimer.Interval = 1;
-            this.acquireTimer.Tick += new System.EventHandler(this.acquireTimer_Tick);
+            this.acquisitionTimer.Interval = 1;
+            this.acquisitionTimer.Tick += new System.EventHandler(this.acquisitionTimer_Tick);
             // 
             // bargraphBar
             // 
@@ -393,7 +393,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ParksideView v1.2";
+            this.Text = "ParksideView v1.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.readoutLayout.ResumeLayout(false);
             this.readoutLayout.PerformLayout();
@@ -435,7 +435,7 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button acquisitionPauseButton;
         private System.Windows.Forms.Button connectButton;
-        private System.Windows.Forms.Timer acquireTimer;
+        private System.Windows.Forms.Timer acquisitionTimer;
         private System.Windows.Forms.ProgressBar bargraphBar;
         private System.Windows.Forms.SaveFileDialog recordSaveDialog;
     }

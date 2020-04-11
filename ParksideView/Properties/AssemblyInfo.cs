@@ -7,7 +7,7 @@ using System.Resources;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("ParksideView")]
-[assembly: AssemblyDescription("Parkside PDM-300-C2 Anzeige- und Aufzeichnungsprogramm")]
+[assembly: AssemblyDescription("Parkside PDM-300-C2 Display and Acquisition Program")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Benedikt Müssig Hardware & Software")]
 [assembly: AssemblyProduct("ParksideView")]
@@ -33,6 +33,6 @@ using System.Resources;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.0.0")]
-[assembly: AssemblyFileVersion("1.2.0.0")]
-[assembly: NeutralResourcesLanguageAttribute("de-DE")]
+[assembly: AssemblyVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("")]
