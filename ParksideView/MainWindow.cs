@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ParksideView
 {
@@ -35,6 +36,9 @@ namespace ParksideView
             intervalLabel.Text = Language.Interval;
             // CSV group
             csvFormatGroup.Text = Language.CSVFormatHeading;
+            // Save file dialog
+            recordSaveDialog.Title = Language.SaveDialogTitle;
+            recordSaveDialog.Filter = Language.SaveDialogFilter;
 
             // Refresh the ports list
             RefreshPorts();
@@ -136,6 +140,10 @@ namespace ParksideView
                     acquisitionTimer.Start();
                     return;
                 }
+
+                // Skip invalid packets
+                if (!sample.ChecksumValid)
+                    continue;
 
                 // Clear the blank screen count and set the alive flag after a successful reception
                 blankCount = 0;
@@ -416,8 +424,10 @@ namespace ParksideView
                 // Clear the old list
                 portsListBox.Items.Clear();
 
-                // Add all items to it
-                portsListBox.Items.AddRange(ports);
+                // Add the items to it and filter them
+                foreach (string port in ports)
+                    if (ShowPort(port))
+                        portsListBox.Items.Add(port);
 
                 // If any ports are present, select the first
                 if (ports.Length > 0)
@@ -430,6 +440,22 @@ namespace ParksideView
                     Language.PortsListErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+        }
+
+        /// <summary>
+        /// The regex used to match skippable entries in a ports list
+        /// </summary>
+        private readonly Regex skippablePortsRegex = new Regex("^/dev/tty[a-z][0-9a-z]$",
+            RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// Checks, whether to show a port in the ports list.
+        /// </summary>
+        /// <param name="port">The port to check.</param>
+        /// <returns>True, if the port might be shown, or false if not.</returns>
+        private bool ShowPort(string port)
+        {
+            return !skippablePortsRegex.IsMatch(port);
         }
 
         /// <summary>

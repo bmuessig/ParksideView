@@ -197,7 +197,6 @@
             // 
             // csvFormatUSRadio
             // 
-            this.csvFormatUSRadio.AutoSize = true;
             this.csvFormatUSRadio.Checked = true;
             this.csvFormatUSRadio.Location = new System.Drawing.Point(9, 16);
             this.csvFormatUSRadio.Name = "csvFormatUSRadio";
@@ -209,7 +208,6 @@
             // 
             // csvFormatDERadio
             // 
-            this.csvFormatDERadio.AutoSize = true;
             this.csvFormatDERadio.Location = new System.Drawing.Point(9, 38);
             this.csvFormatDERadio.Name = "csvFormatDERadio";
             this.csvFormatDERadio.Size = new System.Drawing.Size(93, 17);
@@ -333,10 +331,9 @@
             // 
             // topMostCheck
             // 
-            this.topMostCheck.AutoSize = true;
             this.topMostCheck.Location = new System.Drawing.Point(11, 18);
             this.topMostCheck.Name = "topMostCheck";
-            this.topMostCheck.Size = new System.Drawing.Size(89, 17);
+            this.topMostCheck.Size = new System.Drawing.Size(86, 17);
             this.topMostCheck.TabIndex = 12;
             this.topMostCheck.Text = "<Top most>";
             this.topMostCheck.UseVisualStyleBackColor = true;
@@ -372,8 +369,6 @@
             // recordSaveDialog
             // 
             this.recordSaveDialog.DefaultExt = "csv";
-            this.recordSaveDialog.Filter = "CSV-Dateien|*.csv";
-            this.recordSaveDialog.Title = "Aufzeichnung speichern unter";
             // 
             // MainWindow
             // 
@@ -393,18 +388,16 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ParksideView v1.3";
+            this.Text = "ParksideView v1.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.readoutLayout.ResumeLayout(false);
             this.readoutLayout.PerformLayout();
             this.readoutPanel.ResumeLayout(false);
             this.acquisitionGroup.ResumeLayout(false);
             this.csvFormatGroup.ResumeLayout(false);
-            this.csvFormatGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.intervalNumeric)).EndInit();
             this.connectionGroup.ResumeLayout(false);
             this.windowGroup.ResumeLayout(false);
-            this.windowGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }

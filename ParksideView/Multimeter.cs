@@ -25,7 +25,16 @@ namespace ParksideView
         {
             get
             {
-                return port != null && port.IsOpen;
+                // Make sure that the port is open and working
+                // All port operations are wrapped in try-blocks to make sure no IO exception ever occurs
+                try
+                {
+                    return port != null && port.IsOpen;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
         }
 
@@ -36,7 +45,15 @@ namespace ParksideView
         {
             get
             {
-                return IsConnected && (IsSynchronized && port.BytesToRead >= 8 || !IsSynchronized && port.BytesToRead >= 10);
+                // If the stream is synchronized, the two byte header has already been consumed, therefore, fewer bytes are required
+                try
+                {
+                    return IsConnected && (IsSynchronized && port.BytesToRead >= 8 || !IsSynchronized && port.BytesToRead >= 10);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
         }
         
@@ -280,13 +297,13 @@ namespace ParksideView
                 return 0;
 
             // Handle the exceptions next
-            if (mode == Mode.VoltDC && range == Range.F || mode == Mode.VoltAC && range == Range.F)
+            if (mode == Mode.VoltDC && range == Range.F)
                 return -300;
             else if (mode == Mode.Ampere && range == Range.G)
                 return -1000;
 
             // Handle ranges without negative numbers
-            if (mode == Mode.ResistanceOhm || mode == Mode.ContinuityOhm || mode == Mode.DiodeVolt)
+            if (mode == Mode.VoltAC || mode == Mode.ResistanceOhm || mode == Mode.ContinuityOhm || mode == Mode.DiodeVolt)
                 return 0;
 
             // Return full scale (-1999 counts) for all other ranges

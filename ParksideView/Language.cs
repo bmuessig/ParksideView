@@ -38,6 +38,8 @@ namespace ParksideView
         public const string SavingFailedTitle = "Speichern fehlgeschlagen";
         public const string DiscardDataText = "Möchten Sie wirklich die {0} aufgezeichneten Datenpunkte ungespeichert verwerfen?";
         public const string DiscardDataTitle = "Daten verwerfen";
+        public const string SaveDialogTitle = "Aufzeichnung speichern unter";
+        public const string SaveDialogFilter = "CSV-Dateien|*.csv";
         public const string CSVVersionFormat = "{0} {1} von Benedikt Muessig";
         public const string CSVUnit = "Einheit";
         public const string CSVValue = "Wert";
@@ -88,6 +90,8 @@ namespace ParksideView
         public const string SavingFailedTitle = "Saving failed";
         public const string DiscardDataText = "Do you really want to discard the {0} unsaved data points?";
         public const string DiscardDataTitle = "Discard data";
+        public const string SaveDialogTitle = "Save recording as";
+        public const string SaveDialogFilter = "CSV files|*.csv";
         public const string CSVVersionFormat = "{0} {1} by Benedikt Muessig";
         public const string CSVUnit = "Unit";
         public const string CSVValue = "Value";
