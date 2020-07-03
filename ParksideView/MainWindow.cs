@@ -34,6 +34,8 @@ namespace ParksideView
             windowGroup.Text = Language.WindowHeading;
             topMostCheck.Text = Language.TopMostCheckBox;
             minimizeButton.Text = Language.MinimizeButton;
+            // Statistics group
+            statisticsGroup.Text = Language.StatisticsHeading;
             // Acquisition group
             acquisitionGroup.Text = Language.AcquisitionHeading;
             intervalLabel.Text = Language.Interval;
@@ -136,9 +138,10 @@ namespace ParksideView
                 UpdateTimer();
 
             // Read all available packets
+            Packet sample = new Packet();
+            bool success = false;
             while (meter.IsAvailable)
             {
-                Packet sample;
                 if (!meter.Receive(out sample))
                 {
                     // Update the blank screen count
@@ -153,175 +156,187 @@ namespace ParksideView
                 if (!sample.ChecksumValid)
                     continue;
 
-                // Clear the blank screen count and set the alive flag after a successful reception
-                blankCount = 0;
-                if (!isAlive)
+                // Set the success flag
+                success = true;
+            }
+
+            // Check, if the reception was successful
+            if (!success)
+            {
+                // Start the timer again
+                acquisitionTimer.Start();
+                return;
+            }
+
+            // Clear the blank screen count and set the alive flag after a successful reception
+            blankCount = 0;
+            if (!isAlive)
+            {
+                isAlive = true;
+                UpdateStatusLabels();
+            }
+
+            // Handle regular display
+            // Set the mode label accordingly first
+            bool validMode = true;
+            bool valueMode = true;
+            switch (sample.Mode)
+            {
+                case Mode.Ampere:
+                    modeLabel.Text = Language.ModeCurrent;
+                    break;
+
+                case Mode.AmpereMicro:
+                    modeLabel.Text = Language.ModeCurrent;
+                    break;
+
+                case Mode.AmpereMilli:
+                    modeLabel.Text = Language.ModeCurrent;
+                    break;
+
+                case Mode.ContinuityOhm:
+                    modeLabel.Text = Language.ModeContinuity;
+                    break;
+
+                case Mode.DiodeVolt:
+                    modeLabel.Text = Language.ModeDiode;
+                    break;
+
+                case Mode.ResistanceOhm:
+                    modeLabel.Text = Language.ModeResistance;
+                    break;
+
+                case Mode.VoltAC:
+                    modeLabel.Text = Language.ModeVoltageAC;
+                    break;
+
+                case Mode.VoltDC:
+                    modeLabel.Text = Language.ModeVoltageDC;
+                    break;
+
+                case Mode.Squarewave:
+                    modeLabel.Text = Language.ModeSquarewave;
+                    valueMode = false;
+                    break;
+
+                default:
+                    modeLabel.Text = Language.ModeUnknown;
+                    valueMode = false;
+                    validMode = false;
+                    break;
+            }
+
+            // Compare the last range with the current one
+            if (lastMode != sample.Mode)
+            {
+                ClearStatistics();
+                lastMode = sample.Mode;
+            }
+
+            // Allocate variables for the number parsing
+            bool negative = false;
+            int integer = 0, fractional = 0, exponent = 0, precision = 0;
+            char unit = '\0', unitPrefix = '\0';
+
+            // Attempt to parse the number
+            if (validMode && valueMode)
+                validMode = Multimeter.Parse(sample, out negative, out integer, out fractional, out exponent, out precision, out unit, out unitPrefix);
+
+            // Check, if the mode is invalid or that the number is OL
+            bool overloaded = Multimeter.IsOverloaded(sample);
+            if (overloaded && valueMode) // Overload
+            {
+                // Update the value and unit labels
+                valueLabel.Text = "OL";
+                unitLabel.Text = unit.ToString();
+
+                // Fill the bargraph
+                FillBargraph();
+            }
+            else if (!validMode || !valueMode)
+            {
+                // No valid mode
+                valueLabel.Text = "";
+                unitLabel.Text = "";
+
+                // Clear the bargraph
+                ClearBargraph();
+
+                // Cancel and skip the rest
+                acquisitionTimer.Start();
+                return;
+            }
+            else
+            {
+                // Just format the value according to the precision
+                valueLabel.Text = precision < 1 ? integer.ToString() :
+                    string.Format("{0}{1}.{2:D" + precision.ToString() + "}", negative ? "-" : "", integer, fractional);
+                // Also update the unit label
+                unitLabel.Text = unitPrefix == '\0' ? unit.ToString() : string.Format("{0}{1}", unitPrefix, unit);
+            }
+
+            // Update the UI
+            if (!overloaded)
+            {
+                // Update the bargraph
+                bargraphBar.Minimum = 0;
+                bargraphBar.Maximum = sample.Value < 0 ? Math.Abs(Multimeter.RangeMin(sample.Mode, sample.Range)) : Multimeter.RangeMax(sample.Mode, sample.Range);
+                bargraphBar.Value = Math.Abs(sample.Value);
+
+                // Calculate the double value
+                double currentValue = Math.Pow(10, exponent) * (integer + (fractional * Math.Pow(10, -precision)));
+                if (negative)
+                    currentValue = -currentValue;
+
+                // Update the min statistics
+                if (resetStatistics || minValue > currentValue)
                 {
-                    isAlive = true;
-                    UpdateStatusLabels();
+                    minValue = currentValue;
+                    minValueLabel.Text = valueLabel.Text + unitLabel.Text;
                 }
 
-                // Handle regular display
-                // Set the mode label accordingly first
-                bool validMode = true;
-                bool valueMode = true;
-                switch (sample.Mode)
+                // Update the max statistics
+                if (resetStatistics || maxValue < currentValue)
                 {
-                    case Mode.Ampere:
-                        modeLabel.Text = Language.ModeCurrent;
-                        break;
-
-                    case Mode.AmpereMicro:
-                        modeLabel.Text = Language.ModeCurrent;
-                        break;
-
-                    case Mode.AmpereMilli:
-                        modeLabel.Text = Language.ModeCurrent;
-                        break;
-
-                    case Mode.ContinuityOhm:
-                        modeLabel.Text = Language.ModeContinuity;
-                        break;
-
-                    case Mode.DiodeVolt:
-                        modeLabel.Text = Language.ModeDiode;
-                        break;
-
-                    case Mode.ResistanceOhm:
-                        modeLabel.Text = Language.ModeResistance;
-                        break;
-
-                    case Mode.VoltAC:
-                        modeLabel.Text = Language.ModeVoltageAC;
-                        break;
-
-                    case Mode.VoltDC:
-                        modeLabel.Text = Language.ModeVoltageDC;
-                        break;
-
-                    case Mode.Squarewave:
-                        modeLabel.Text = Language.ModeSquarewave;
-                        valueMode = false;
-                        break;
-
-                    default:
-                        modeLabel.Text = Language.ModeUnknown;
-                        valueMode = false;
-                        validMode = false;
-                        break;
+                    maxValue = currentValue;
+                    maxValueLabel.Text = valueLabel.Text + unitLabel.Text;
                 }
 
-                // Compare the last range with the current one
-                if (lastMode != sample.Mode)
-                {
-                    ClearStatistics();
-                    lastMode = sample.Mode;
-                }
+                // Unset the statistics flag
+                if (resetStatistics)
+                    resetStatistics = false;
+            }
 
-                // Allocate variables for the number parsing
-                bool negative = false;
-                int integer = 0, fractional = 0, exponent = 0, precision = 0;
-                char unit = '\0', unitPrefix = '\0';
+            // Handle record mode only for valid value modes
+            if (isRecording)
+            {
+                // Calculate the offset in seconds
+                TimeSpan delta = sample.ReceptionTime - recordingStart;
 
-                // Attempt to parse the number
-                if (validMode && valueMode)
-                    validMode = Multimeter.Parse(sample, out negative, out integer, out fractional, out exponent, out precision, out unit, out unitPrefix);
+                // Assemble the line, e.g.: 4.32,12.34E-3,V
+                // Start with the time offset
+                recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
+                    "{0:E}", delta.TotalSeconds);
+                // Followed by the delimiter
+                recordingBuffer.Append(GetCSVDelimiter());
+                // Followed by the value
+                if (overloaded) // Overload
+                    recordingBuffer.Append("OL");
+                else if (precision < 1) // Integer value
+                    recordingBuffer.AppendFormat("{0}E{1}", integer, exponent);
+                else // Fixed point value
+                    recordingBuffer.AppendFormat("{0}{1}{2}{3:D" + precision.ToString() + "}E{4}", negative ? "-" : "", integer,
+                        GetCSVFractionalSeparator(), fractional, exponent);
+                // Followed by the delimiter
+                recordingBuffer.Append(GetCSVDelimiter());
+                // Followed by the unit
+                recordingBuffer.Append(unit);
+                // And a final line break
+                recordingBuffer.AppendLine();
 
-                // Check, if the mode is invalid or that the number is OL
-                bool overloaded = Multimeter.IsOverloaded(sample);
-                if (overloaded && valueMode) // Overload
-                {
-                    // Update the value and unit labels
-                    valueLabel.Text = "OL";
-                    unitLabel.Text = unit.ToString();
-
-                    // Fill the bargraph
-                    FillBargraph();
-                }
-                else if (!validMode || !valueMode)
-                {
-                    // No valid mode
-                    valueLabel.Text = "";
-                    unitLabel.Text = "";
-
-                    // Clear the bargraph
-                    ClearBargraph();
-
-                    // Continue and skip the rest
-                    continue;
-                }
-                else
-                {
-                    // Just format the value according to the precision
-                    valueLabel.Text = precision < 1 ? integer.ToString() :
-                        string.Format("{0}{1}.{2:D" + precision.ToString() + "}", negative ? "-" : "", integer, fractional);
-                    // Also update the unit label
-                    unitLabel.Text = unitPrefix == '\0' ? unit.ToString() : string.Format("{0}{1}", unitPrefix, unit);
-                }
-
-                // Update the UI
-                if (!overloaded)
-                {
-                    // Update the bargraph
-                    bargraphBar.Minimum = 0;
-                    bargraphBar.Maximum = sample.Value < 0 ? Math.Abs(Multimeter.RangeMin(sample.Mode, sample.Range)) : Multimeter.RangeMax(sample.Mode, sample.Range);
-                    bargraphBar.Value = Math.Abs(sample.Value);
-
-                    // Calculate the double value
-                    double currentValue = Math.Pow(10, exponent) * (integer + (fractional * Math.Pow(10, -precision)));
-                    if (negative)
-                        currentValue = -currentValue;
-
-                    // Update the min statistics
-                    if (resetStatistics || minValue > currentValue)
-                    {
-                        minValue = currentValue;
-                        minValueLabel.Text = valueLabel.Text + unitLabel.Text;
-                    }
-
-                    // Update the max statistics
-                    if (resetStatistics || maxValue < currentValue)
-                    {
-                        maxValue = currentValue;
-                        maxValueLabel.Text = valueLabel.Text + unitLabel.Text;
-                    }
-
-                    // Unset the statistics flag
-                    if (resetStatistics)
-                        resetStatistics = false;
-                }
-
-                // Handle record mode only for valid value modes
-                if (isRecording)
-                {
-                    // Calculate the offset in seconds
-                    TimeSpan delta = sample.ReceptionTime - recordingStart;
-
-                    // Assemble the line, e.g.: 4.32,12.34E-3,V
-                    // Start with the time offset
-                    recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
-                        "{0:E}", delta.TotalSeconds);
-                    // Followed by the delimiter
-                    recordingBuffer.Append(GetCSVDelimiter());
-                    // Followed by the value
-                    if (overloaded) // Overload
-                        recordingBuffer.Append("OL");
-                    else if (precision < 1) // Integer value
-                        recordingBuffer.AppendFormat("{0}E{1}", integer, exponent);
-                    else // Fixed point value
-                        recordingBuffer.AppendFormat("{0}{1}{2}{3:D" + precision.ToString() + "}E{4}", negative ? "-" : "", integer,
-                            GetCSVFractionalSeparator(), fractional, exponent);
-                    // Followed by the delimiter
-                    recordingBuffer.Append(GetCSVDelimiter());
-                    // Followed by the unit
-                    recordingBuffer.Append(unit);
-                    // And a final line break
-                    recordingBuffer.AppendLine();
-
-                    // Update the running for label and increment the sample counter
-                    recordingCount++;
-                    UpdateStatusLabels();
-                }
+                // Update the running for label and increment the sample counter
+                recordingCount++;
+                UpdateStatusLabels();
             }
 
             // Start the timer again
@@ -484,7 +499,7 @@ namespace ParksideView
         /// <summary>
         /// The regex used to match skippable entries in a ports list
         /// </summary>
-        private readonly Regex skippablePortsRegex = new Regex("^/dev/tty(?:[a-rt-z]?[0-9]+)$",
+        private readonly Regex skippablePortsRegex = new Regex("^/dev/tty[a-rt-z]?[0-9]+$",
             RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase);
 
         /// <summary>
@@ -726,8 +741,9 @@ namespace ParksideView
             intervalNumeric.Enabled = !isRecording;
             resetButton.Enabled = isConnected;
 
-            // Clear the statistics
-            ClearStatistics();
+            // Clear the statistics if not connected
+            if (!isConnected)
+                ClearStatistics();
 
             // Clear the readout and bargraph after disconnecting
             if (!isConnected)

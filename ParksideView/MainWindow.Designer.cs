@@ -148,7 +148,7 @@
             // 
             // recordToggleButton
             // 
-            this.recordToggleButton.Location = new System.Drawing.Point(9, 18);
+            this.recordToggleButton.Location = new System.Drawing.Point(8, 18);
             this.recordToggleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.recordToggleButton.Name = "recordToggleButton";
             this.recordToggleButton.Size = new System.Drawing.Size(101, 22);
@@ -185,7 +185,7 @@
             // 
             // intervalLabel
             // 
-            this.intervalLabel.Location = new System.Drawing.Point(7, 50);
+            this.intervalLabel.Location = new System.Drawing.Point(5, 50);
             this.intervalLabel.Name = "intervalLabel";
             this.intervalLabel.Size = new System.Drawing.Size(94, 13);
             this.intervalLabel.TabIndex = 10;
@@ -224,7 +224,7 @@
             // 
             // acquisitionStatusLabel
             // 
-            this.acquisitionStatusLabel.Location = new System.Drawing.Point(6, 76);
+            this.acquisitionStatusLabel.Location = new System.Drawing.Point(5, 73);
             this.acquisitionStatusLabel.Name = "acquisitionStatusLabel";
             this.acquisitionStatusLabel.Size = new System.Drawing.Size(292, 13);
             this.acquisitionStatusLabel.TabIndex = 5;
@@ -394,7 +394,7 @@
             // maxValueLabel
             // 
             this.maxValueLabel.AutoSize = true;
-            this.maxValueLabel.Location = new System.Drawing.Point(149, 21);
+            this.maxValueLabel.Location = new System.Drawing.Point(150, 21);
             this.maxValueLabel.Name = "maxValueLabel";
             this.maxValueLabel.Size = new System.Drawing.Size(11, 13);
             this.maxValueLabel.TabIndex = 4;
@@ -403,7 +403,7 @@
             // minValueLabel
             // 
             this.minValueLabel.AutoSize = true;
-            this.minValueLabel.Location = new System.Drawing.Point(49, 21);
+            this.minValueLabel.Location = new System.Drawing.Point(41, 21);
             this.minValueLabel.Name = "minValueLabel";
             this.minValueLabel.Size = new System.Drawing.Size(11, 13);
             this.minValueLabel.TabIndex = 3;
@@ -422,7 +422,7 @@
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(112, 21);
+            this.maxLabel.Location = new System.Drawing.Point(113, 21);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(31, 13);
             this.maxLabel.TabIndex = 1;
@@ -431,7 +431,7 @@
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(13, 21);
+            this.minLabel.Location = new System.Drawing.Point(5, 21);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(30, 13);
             this.minLabel.TabIndex = 0;
@@ -456,7 +456,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ParksideView v1.4";
+            this.Text = "ParksideView v1.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.readoutLayout.ResumeLayout(false);
             this.readoutLayout.PerformLayout();
