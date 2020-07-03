@@ -57,6 +57,12 @@
             this.acquisitionTimer = new System.Windows.Forms.Timer(this.components);
             this.bargraphBar = new System.Windows.Forms.ProgressBar();
             this.recordSaveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.statisticsGroup = new System.Windows.Forms.GroupBox();
+            this.maxValueLabel = new System.Windows.Forms.Label();
+            this.minValueLabel = new System.Windows.Forms.Label();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.maxLabel = new System.Windows.Forms.Label();
+            this.minLabel = new System.Windows.Forms.Label();
             this.readoutLayout.SuspendLayout();
             this.readoutPanel.SuspendLayout();
             this.acquisitionGroup.SuspendLayout();
@@ -64,13 +70,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.intervalNumeric)).BeginInit();
             this.connectionGroup.SuspendLayout();
             this.windowGroup.SuspendLayout();
+            this.statisticsGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // valueLabel
             // 
-            this.valueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.valueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.valueLabel.AutoSize = true;
             this.valueLabel.Font = new System.Drawing.Font("Segoe UI", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valueLabel.Location = new System.Drawing.Point(3, 0);
@@ -102,9 +109,9 @@
             // 
             // unitLabel
             // 
-            this.unitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.unitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.unitLabel.AutoSize = true;
             this.unitLabel.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitLabel.Location = new System.Drawing.Point(218, 0);
@@ -116,9 +123,9 @@
             // 
             // modeLabel
             // 
-            this.modeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.modeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.modeLabel.AutoSize = true;
             this.readoutLayout.SetColumnSpan(this.modeLabel, 2);
             this.modeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,7 +152,7 @@
             this.recordToggleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.recordToggleButton.Name = "recordToggleButton";
             this.recordToggleButton.Size = new System.Drawing.Size(101, 22);
-            this.recordToggleButton.TabIndex = 5;
+            this.recordToggleButton.TabIndex = 7;
             this.recordToggleButton.Text = "<Record>";
             this.recordToggleButton.UseVisualStyleBackColor = true;
             this.recordToggleButton.Click += new System.EventHandler(this.recordToggleButton_Click);
@@ -158,10 +165,10 @@
             this.acquisitionGroup.Controls.Add(this.acquisitionStatusLabel);
             this.acquisitionGroup.Controls.Add(this.intervalNumeric);
             this.acquisitionGroup.Controls.Add(this.recordToggleButton);
-            this.acquisitionGroup.Location = new System.Drawing.Point(12, 224);
+            this.acquisitionGroup.Location = new System.Drawing.Point(14, 276);
             this.acquisitionGroup.Name = "acquisitionGroup";
             this.acquisitionGroup.Size = new System.Drawing.Size(310, 96);
-            this.acquisitionGroup.TabIndex = 4;
+            this.acquisitionGroup.TabIndex = 6;
             this.acquisitionGroup.TabStop = false;
             this.acquisitionGroup.Text = "<Acquisition>";
             // 
@@ -171,7 +178,7 @@
             this.acquisitionPauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.acquisitionPauseButton.Name = "acquisitionPauseButton";
             this.acquisitionPauseButton.Size = new System.Drawing.Size(64, 22);
-            this.acquisitionPauseButton.TabIndex = 6;
+            this.acquisitionPauseButton.TabIndex = 8;
             this.acquisitionPauseButton.Text = "<P/C>";
             this.acquisitionPauseButton.UseVisualStyleBackColor = true;
             this.acquisitionPauseButton.Click += new System.EventHandler(this.acquisitionPauseButton_Click);
@@ -191,7 +198,7 @@
             this.csvFormatGroup.Location = new System.Drawing.Point(191, 10);
             this.csvFormatGroup.Name = "csvFormatGroup";
             this.csvFormatGroup.Size = new System.Drawing.Size(107, 60);
-            this.csvFormatGroup.TabIndex = 8;
+            this.csvFormatGroup.TabIndex = 10;
             this.csvFormatGroup.TabStop = false;
             this.csvFormatGroup.Text = "<CSV format>";
             // 
@@ -201,7 +208,7 @@
             this.csvFormatUSRadio.Location = new System.Drawing.Point(9, 16);
             this.csvFormatUSRadio.Name = "csvFormatUSRadio";
             this.csvFormatUSRadio.Size = new System.Drawing.Size(93, 17);
-            this.csvFormatUSRadio.TabIndex = 9;
+            this.csvFormatUSRadio.TabIndex = 11;
             this.csvFormatUSRadio.TabStop = true;
             this.csvFormatUSRadio.Text = "US: 0.12, 0.23";
             this.csvFormatUSRadio.UseVisualStyleBackColor = true;
@@ -211,7 +218,7 @@
             this.csvFormatDERadio.Location = new System.Drawing.Point(9, 38);
             this.csvFormatDERadio.Name = "csvFormatDERadio";
             this.csvFormatDERadio.Size = new System.Drawing.Size(93, 17);
-            this.csvFormatDERadio.TabIndex = 10;
+            this.csvFormatDERadio.TabIndex = 12;
             this.csvFormatDERadio.Text = "DE: 0,12; 0,23";
             this.csvFormatDERadio.UseVisualStyleBackColor = true;
             // 
@@ -238,7 +245,7 @@
             0});
             this.intervalNumeric.Name = "intervalNumeric";
             this.intervalNumeric.Size = new System.Drawing.Size(75, 22);
-            this.intervalNumeric.TabIndex = 7;
+            this.intervalNumeric.TabIndex = 9;
             this.intervalNumeric.Value = new decimal(new int[] {
             1,
             0,
@@ -315,7 +322,7 @@
             this.windowGroup.Location = new System.Drawing.Point(218, 149);
             this.windowGroup.Name = "windowGroup";
             this.windowGroup.Size = new System.Drawing.Size(103, 69);
-            this.windowGroup.TabIndex = 11;
+            this.windowGroup.TabIndex = 13;
             this.windowGroup.TabStop = false;
             this.windowGroup.Text = "<Window>";
             // 
@@ -324,7 +331,7 @@
             this.minimizeButton.Location = new System.Drawing.Point(8, 39);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(87, 23);
-            this.minimizeButton.TabIndex = 13;
+            this.minimizeButton.TabIndex = 15;
             this.minimizeButton.Text = "<Minimize>";
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
@@ -334,7 +341,7 @@
             this.topMostCheck.Location = new System.Drawing.Point(11, 18);
             this.topMostCheck.Name = "topMostCheck";
             this.topMostCheck.Size = new System.Drawing.Size(86, 17);
-            this.topMostCheck.TabIndex = 12;
+            this.topMostCheck.TabIndex = 14;
             this.topMostCheck.Text = "<Top most>";
             this.topMostCheck.UseVisualStyleBackColor = true;
             this.topMostCheck.CheckedChanged += new System.EventHandler(this.topMostCheck_CheckedChanged);
@@ -344,7 +351,7 @@
             this.copyrightLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.copyrightLabel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.copyrightLabel.Location = new System.Drawing.Point(0, 323);
+            this.copyrightLabel.Location = new System.Drawing.Point(0, 378);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(334, 18);
             this.copyrightLabel.TabIndex = 7;
@@ -370,11 +377,72 @@
             // 
             this.recordSaveDialog.DefaultExt = "csv";
             // 
+            // statisticsGroup
+            // 
+            this.statisticsGroup.Controls.Add(this.maxValueLabel);
+            this.statisticsGroup.Controls.Add(this.minValueLabel);
+            this.statisticsGroup.Controls.Add(this.resetButton);
+            this.statisticsGroup.Controls.Add(this.maxLabel);
+            this.statisticsGroup.Controls.Add(this.minLabel);
+            this.statisticsGroup.Location = new System.Drawing.Point(14, 224);
+            this.statisticsGroup.Name = "statisticsGroup";
+            this.statisticsGroup.Size = new System.Drawing.Size(309, 46);
+            this.statisticsGroup.TabIndex = 4;
+            this.statisticsGroup.TabStop = false;
+            this.statisticsGroup.Text = "Statistics";
+            // 
+            // maxValueLabel
+            // 
+            this.maxValueLabel.AutoSize = true;
+            this.maxValueLabel.Location = new System.Drawing.Point(149, 21);
+            this.maxValueLabel.Name = "maxValueLabel";
+            this.maxValueLabel.Size = new System.Drawing.Size(11, 13);
+            this.maxValueLabel.TabIndex = 4;
+            this.maxValueLabel.Text = "-";
+            // 
+            // minValueLabel
+            // 
+            this.minValueLabel.AutoSize = true;
+            this.minValueLabel.Location = new System.Drawing.Point(49, 21);
+            this.minValueLabel.Name = "minValueLabel";
+            this.minValueLabel.Size = new System.Drawing.Size(11, 13);
+            this.minValueLabel.TabIndex = 3;
+            this.minValueLabel.Text = "-";
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(224, 16);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 5;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // maxLabel
+            // 
+            this.maxLabel.AutoSize = true;
+            this.maxLabel.Location = new System.Drawing.Point(112, 21);
+            this.maxLabel.Name = "maxLabel";
+            this.maxLabel.Size = new System.Drawing.Size(31, 13);
+            this.maxLabel.TabIndex = 1;
+            this.maxLabel.Text = "Max:";
+            // 
+            // minLabel
+            // 
+            this.minLabel.AutoSize = true;
+            this.minLabel.Location = new System.Drawing.Point(13, 21);
+            this.minLabel.Name = "minLabel";
+            this.minLabel.Size = new System.Drawing.Size(30, 13);
+            this.minLabel.TabIndex = 0;
+            this.minLabel.Text = "Min:";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 341);
+            this.ClientSize = new System.Drawing.Size(334, 396);
+            this.Controls.Add(this.statisticsGroup);
             this.Controls.Add(this.bargraphBar);
             this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.windowGroup);
@@ -398,6 +466,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.intervalNumeric)).EndInit();
             this.connectionGroup.ResumeLayout(false);
             this.windowGroup.ResumeLayout(false);
+            this.statisticsGroup.ResumeLayout(false);
+            this.statisticsGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -431,6 +501,12 @@
         private System.Windows.Forms.Timer acquisitionTimer;
         private System.Windows.Forms.ProgressBar bargraphBar;
         private System.Windows.Forms.SaveFileDialog recordSaveDialog;
+        private System.Windows.Forms.GroupBox statisticsGroup;
+        private System.Windows.Forms.Label maxValueLabel;
+        private System.Windows.Forms.Label minValueLabel;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Label maxLabel;
+        private System.Windows.Forms.Label minLabel;
     }
 }
 

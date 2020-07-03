@@ -15,6 +15,9 @@ namespace ParksideView
         private StringBuilder recordingBuffer = new StringBuilder();
         private DateTime recordingStart = DateTime.Now;
         private int blankCount = 0, recordingCount = 0;
+        private Mode lastMode = Mode.Squarewave;
+        private double minValue = 0, maxValue = 0;
+        private bool resetStatistics = true;
         private Multimeter meter = null;
 
         public MainWindow()
@@ -86,6 +89,11 @@ namespace ParksideView
         private void refreshPortsButton_Click(object sender, EventArgs e)
         {
             RefreshPorts();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            ClearStatistics();
         }
 
         private void acquisitionTimer_Tick(object sender, EventArgs e)
@@ -203,6 +211,13 @@ namespace ParksideView
                         break;
                 }
 
+                // Compare the last range with the current one
+                if (lastMode != sample.Mode)
+                {
+                    ClearStatistics();
+                    lastMode = sample.Mode;
+                }
+
                 // Allocate variables for the number parsing
                 bool negative = false;
                 int integer = 0, fractional = 0, exponent = 0, precision = 0;
@@ -247,9 +262,33 @@ namespace ParksideView
                 // Update the UI
                 if (!overloaded)
                 {
+                    // Update the bargraph
                     bargraphBar.Minimum = 0;
                     bargraphBar.Maximum = sample.Value < 0 ? Math.Abs(Multimeter.RangeMin(sample.Mode, sample.Range)) : Multimeter.RangeMax(sample.Mode, sample.Range);
                     bargraphBar.Value = Math.Abs(sample.Value);
+
+                    // Calculate the double value
+                    double currentValue = Math.Pow(10, exponent) * (integer + (fractional * Math.Pow(10, -precision)));
+                    if (negative)
+                        currentValue = -currentValue;
+
+                    // Update the min statistics
+                    if (resetStatistics || minValue > currentValue)
+                    {
+                        minValue = currentValue;
+                        minValueLabel.Text = valueLabel.Text + unitLabel.Text;
+                    }
+
+                    // Update the max statistics
+                    if (resetStatistics || maxValue < currentValue)
+                    {
+                        maxValue = currentValue;
+                        maxValueLabel.Text = valueLabel.Text + unitLabel.Text;
+                    }
+
+                    // Unset the statistics flag
+                    if (resetStatistics)
+                        resetStatistics = false;
                 }
 
                 // Handle record mode only for valid value modes
@@ -445,7 +484,7 @@ namespace ParksideView
         /// <summary>
         /// The regex used to match skippable entries in a ports list
         /// </summary>
-        private readonly Regex skippablePortsRegex = new Regex("^/dev/tty[a-z][0-9a-z]$",
+        private readonly Regex skippablePortsRegex = new Regex("^/dev/tty(?:[a-rt-z]?[0-9]+)$",
             RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase);
 
         /// <summary>
@@ -685,6 +724,10 @@ namespace ParksideView
             acquisitionPauseButton.Enabled = isConnected;
             csvFormatGroup.Enabled = isConnected && !isRecording;
             intervalNumeric.Enabled = !isRecording;
+            resetButton.Enabled = isConnected;
+
+            // Clear the statistics
+            ClearStatistics();
 
             // Clear the readout and bargraph after disconnecting
             if (!isConnected)
@@ -692,6 +735,19 @@ namespace ParksideView
                 ClearReadout();
                 ClearBargraph();
             }
+        }
+
+        /// <summary>
+        /// Clears the statistics and blanks the labels.
+        /// </summary>
+        private void ClearStatistics()
+        {
+            lastMode = Mode.Squarewave;
+            minValue = 0;
+            maxValue = 0;
+            resetStatistics = true;
+            minValueLabel.Text = "-";
+            maxValueLabel.Text = "-";
         }
 
         /// <summary>

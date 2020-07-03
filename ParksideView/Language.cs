@@ -27,6 +27,7 @@ namespace ParksideView
         public const string WindowHeading = "Fenster";
         public const string TopMostCheckBox = "Deckend";
         public const string MinimizeButton = "Minimieren";
+        public const string StatisticsHeading = "Statistik";
         public const string AcqStatusRecording = " Aufzeichnung ({0} seit {1:00}h {2:00}m {3:00}s).";
         public const string AcqStatusPrefix = "Status: ";
         public const string AcqStatusRunning = "Laufend.";
@@ -79,6 +80,7 @@ namespace ParksideView
         public const string WindowHeading = "Window";
         public const string TopMostCheckBox = "Top most";
         public const string MinimizeButton = "Minimize";
+        public const string StatisticsHeading = "Statistics";
         public const string AcqStatusRecording = " Recording ({0} since {1:00}h {2:00}m {3:00}s).";
         public const string AcqStatusPrefix = "Status: ";
         public const string AcqStatusRunning = "Running.";
