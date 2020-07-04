@@ -9,6 +9,7 @@ Diese Multimeter wurden im März 2020 international vom Discounter LIDL verkauft
 * Große Echtzeitanzeige des aktuell auf dem Multimeter angezeigten Wertes
 * Bargraph-Anzeige in allen unterstützten Modi
 * Aufzeichnen der Messdaten in eine CSV-formatierte Datei
+* Zurücksetzbare Min/Max-Statistik
 * Einstellbare Aufzeichnungsgeschwindigkeiten
 * Ausführbar auf Windows 7, 8, 10 (nicht getestet) und Linux (via Mono: https://www.mono-project.com/)
 * CSV Format zwischen Deutsch und and US/International wählbar
@@ -21,7 +22,7 @@ Diese Multimeter wurden im März 2020 international vom Discounter LIDL verkauft
 * Mehrere Instanzen des Programms können gleichzeitig verwendet werden, um mehrere Multimeter abzufragen
 
 ## Screenshot
-![Screenshot des Programms](https://www.mikrocontroller.net/attachment/452192/PSV12_DE.PNG)
+![Screenshot des Programms](https://www.mikrocontroller.net/wikifiles/7/7e/ParksideView_v15_DE.PNG)
 
 ## Hardware
 Um die Software nutzen zu können, muss ein kleiner, einfacher Hardwareeingriff am Multimeter durchgeführt werden.
