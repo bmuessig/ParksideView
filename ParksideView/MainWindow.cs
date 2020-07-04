@@ -45,6 +45,13 @@ namespace ParksideView
             recordSaveDialog.Title = Language.SaveDialogTitle;
             recordSaveDialog.Filter = Language.SaveDialogFilter;
 
+            // Handle the version
+            Version ver = GetType().Assembly.GetName().Version;
+#if BLUETOOTH
+            Text += " Bluetooth";
+#endif
+            Text += string.Format(" {0}.{1}", ver.Major, ver.Minor);
+
             // Refresh the ports list
             RefreshPorts();
 
@@ -600,6 +607,7 @@ namespace ParksideView
             
             // Clear the buffer and get the current timestamp
             recordingBuffer.Clear();
+            recordingCount = 0;
             recordingStart = DateTime.Now;
             
             // Write the model
@@ -689,7 +697,6 @@ namespace ParksideView
                 try
                 {
                     File.WriteAllText(recordSaveDialog.FileName, recordingBuffer.ToString());
-                    recordingBuffer.Clear();
                     recordSaveDialog.FileName = "";
                     return;
                 }

@@ -389,7 +389,7 @@
             this.statisticsGroup.Size = new System.Drawing.Size(309, 46);
             this.statisticsGroup.TabIndex = 4;
             this.statisticsGroup.TabStop = false;
-            this.statisticsGroup.Text = "Statistics";
+            this.statisticsGroup.Text = "<Statistics>";
             // 
             // maxValueLabel
             // 
@@ -456,7 +456,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ParksideView v1.5";
+            this.Text = "ParksideView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.readoutLayout.ResumeLayout(false);
             this.readoutLayout.PerformLayout();

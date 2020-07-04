@@ -8,6 +8,12 @@ namespace ParksideView
     /// </summary>
     public class Multimeter
     {
+#if !BLUETOOTH
+        private const int BAUDRATE = 2400;
+#else
+        private const int BAUDRATE = 38400;
+#endif
+
         /// <summary>
         /// The name or path of the serial port to connect to.
         /// </summary>
@@ -85,7 +91,7 @@ namespace ParksideView
             TimeoutMilliseconds = timeoutMilliseconds;
 
             // Create the new serial port object
-            port = new SerialPort(portName, 2400, Parity.None, 8, StopBits.One)
+            port = new SerialPort(portName, BAUDRATE, Parity.None, 8, StopBits.One)
             {
                 ReadBufferSize = 1000,
                 ReadTimeout = timeoutMilliseconds,
