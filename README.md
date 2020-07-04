@@ -10,6 +10,7 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Big, realtime readout for the value displayed on the multimeter
 * Bargraph display for all supported modes
 * Recording of values to a CSV formatted file
+* Resettable Min/Max statistics
 * Custom acquisition speeds
 * Runs on Windows 7, 8, 10 (urgh) and Linux (via Mono: https://www.mono-project.com/)
 * German and US/international CSV formats selectable
@@ -22,7 +23,7 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Multiple instances can be run at the same time to display and record different multimeters
 
 ## Screenshot
-![Screenshot of the software](https://www.mikrocontroller.net/attachment/452193/PSV12_EN.PNG)
+![Screenshot of the software](https://www.mikrocontroller.net/wikifiles/7/72/ParksideView_v1.5.png)
 
 ## Hardware
 To use the software, a small and simple hardware modification has to be done to the multimeter.
