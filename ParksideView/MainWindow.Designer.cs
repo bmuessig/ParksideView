@@ -82,7 +82,7 @@
             this.valueLabel.Font = new System.Drawing.Font("Segoe UI", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valueLabel.Location = new System.Drawing.Point(3, 0);
             this.valueLabel.Name = "valueLabel";
-            this.valueLabel.Size = new System.Drawing.Size(209, 76);
+            this.valueLabel.Size = new System.Drawing.Size(230, 76);
             this.valueLabel.TabIndex = 0;
             this.valueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.valueLabel.Click += new System.EventHandler(this.valueLabel_Click);
@@ -103,7 +103,7 @@
             this.readoutLayout.RowCount = 2;
             this.readoutLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67F));
             this.readoutLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.readoutLayout.Size = new System.Drawing.Size(308, 114);
+            this.readoutLayout.Size = new System.Drawing.Size(338, 114);
             this.readoutLayout.TabIndex = 1;
             this.readoutLayout.Click += new System.EventHandler(this.readoutLayout_Click);
             // 
@@ -114,9 +114,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.unitLabel.AutoSize = true;
             this.unitLabel.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitLabel.Location = new System.Drawing.Point(218, 0);
+            this.unitLabel.Location = new System.Drawing.Point(239, 0);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(87, 76);
+            this.unitLabel.Size = new System.Drawing.Size(96, 76);
             this.unitLabel.TabIndex = 2;
             this.unitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.unitLabel.Click += new System.EventHandler(this.unitLabel_Click);
@@ -131,7 +131,7 @@
             this.modeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modeLabel.Location = new System.Drawing.Point(3, 76);
             this.modeLabel.Name = "modeLabel";
-            this.modeLabel.Size = new System.Drawing.Size(302, 38);
+            this.modeLabel.Size = new System.Drawing.Size(332, 38);
             this.modeLabel.TabIndex = 3;
             this.modeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.modeLabel.Click += new System.EventHandler(this.modeLabel_Click);
@@ -143,7 +143,7 @@
             this.readoutPanel.Location = new System.Drawing.Point(13, 11);
             this.readoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.readoutPanel.Name = "readoutPanel";
-            this.readoutPanel.Size = new System.Drawing.Size(310, 116);
+            this.readoutPanel.Size = new System.Drawing.Size(340, 116);
             this.readoutPanel.TabIndex = 2;
             // 
             // recordToggleButton
@@ -151,7 +151,7 @@
             this.recordToggleButton.Location = new System.Drawing.Point(8, 18);
             this.recordToggleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.recordToggleButton.Name = "recordToggleButton";
-            this.recordToggleButton.Size = new System.Drawing.Size(101, 22);
+            this.recordToggleButton.Size = new System.Drawing.Size(110, 22);
             this.recordToggleButton.TabIndex = 7;
             this.recordToggleButton.Text = "<Record>";
             this.recordToggleButton.UseVisualStyleBackColor = true;
@@ -167,17 +167,17 @@
             this.acquisitionGroup.Controls.Add(this.recordToggleButton);
             this.acquisitionGroup.Location = new System.Drawing.Point(14, 276);
             this.acquisitionGroup.Name = "acquisitionGroup";
-            this.acquisitionGroup.Size = new System.Drawing.Size(310, 96);
+            this.acquisitionGroup.Size = new System.Drawing.Size(339, 96);
             this.acquisitionGroup.TabIndex = 6;
             this.acquisitionGroup.TabStop = false;
             this.acquisitionGroup.Text = "<Acquisition>";
             // 
             // acquisitionPauseButton
             // 
-            this.acquisitionPauseButton.Location = new System.Drawing.Point(116, 18);
+            this.acquisitionPauseButton.Location = new System.Drawing.Point(124, 18);
             this.acquisitionPauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.acquisitionPauseButton.Name = "acquisitionPauseButton";
-            this.acquisitionPauseButton.Size = new System.Drawing.Size(64, 22);
+            this.acquisitionPauseButton.Size = new System.Drawing.Size(96, 22);
             this.acquisitionPauseButton.TabIndex = 8;
             this.acquisitionPauseButton.Text = "<P/C>";
             this.acquisitionPauseButton.UseVisualStyleBackColor = true;
@@ -195,7 +195,7 @@
             // 
             this.csvFormatGroup.Controls.Add(this.csvFormatUSRadio);
             this.csvFormatGroup.Controls.Add(this.csvFormatDERadio);
-            this.csvFormatGroup.Location = new System.Drawing.Point(191, 10);
+            this.csvFormatGroup.Location = new System.Drawing.Point(226, 18);
             this.csvFormatGroup.Name = "csvFormatGroup";
             this.csvFormatGroup.Size = new System.Drawing.Size(107, 60);
             this.csvFormatGroup.TabIndex = 10;
@@ -232,7 +232,7 @@
             // 
             // intervalNumeric
             // 
-            this.intervalNumeric.Location = new System.Drawing.Point(105, 46);
+            this.intervalNumeric.Location = new System.Drawing.Point(145, 45);
             this.intervalNumeric.Maximum = new decimal(new int[] {
             172800,
             0,
@@ -271,9 +271,9 @@
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(147, 40);
+            this.connectButton.Location = new System.Drawing.Point(125, 40);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(45, 23);
+            this.connectButton.Size = new System.Drawing.Size(66, 23);
             this.connectButton.TabIndex = 3;
             this.connectButton.Text = "<S/P>";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -290,9 +290,9 @@
             // refreshPortsButton
             // 
             this.refreshPortsButton.AutoEllipsis = true;
-            this.refreshPortsButton.Location = new System.Drawing.Point(147, 15);
+            this.refreshPortsButton.Location = new System.Drawing.Point(125, 15);
             this.refreshPortsButton.Name = "refreshPortsButton";
-            this.refreshPortsButton.Size = new System.Drawing.Size(45, 23);
+            this.refreshPortsButton.Size = new System.Drawing.Size(66, 23);
             this.refreshPortsButton.TabIndex = 2;
             this.refreshPortsButton.Text = "<Ref>";
             this.refreshPortsButton.UseVisualStyleBackColor = true;
@@ -302,7 +302,7 @@
             // 
             this.portLabel.Location = new System.Drawing.Point(6, 20);
             this.portLabel.Name = "portLabel";
-            this.portLabel.Size = new System.Drawing.Size(31, 13);
+            this.portLabel.Size = new System.Drawing.Size(47, 17);
             this.portLabel.TabIndex = 1;
             this.portLabel.Text = "<Port>";
             // 
@@ -310,9 +310,9 @@
             // 
             this.portsListBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.portsListBox.FormattingEnabled = true;
-            this.portsListBox.Location = new System.Drawing.Point(40, 16);
+            this.portsListBox.Location = new System.Drawing.Point(59, 16);
             this.portsListBox.Name = "portsListBox";
-            this.portsListBox.Size = new System.Drawing.Size(101, 21);
+            this.portsListBox.Size = new System.Drawing.Size(60, 21);
             this.portsListBox.TabIndex = 1;
             // 
             // windowGroup
@@ -321,7 +321,7 @@
             this.windowGroup.Controls.Add(this.topMostCheck);
             this.windowGroup.Location = new System.Drawing.Point(218, 149);
             this.windowGroup.Name = "windowGroup";
-            this.windowGroup.Size = new System.Drawing.Size(103, 69);
+            this.windowGroup.Size = new System.Drawing.Size(134, 69);
             this.windowGroup.TabIndex = 13;
             this.windowGroup.TabStop = false;
             this.windowGroup.Text = "<Window>";
@@ -330,7 +330,7 @@
             // 
             this.minimizeButton.Location = new System.Drawing.Point(8, 39);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(87, 23);
+            this.minimizeButton.Size = new System.Drawing.Size(120, 23);
             this.minimizeButton.TabIndex = 15;
             this.minimizeButton.Text = "<Minimize>";
             this.minimizeButton.UseVisualStyleBackColor = true;
@@ -340,7 +340,7 @@
             // 
             this.topMostCheck.Location = new System.Drawing.Point(11, 18);
             this.topMostCheck.Name = "topMostCheck";
-            this.topMostCheck.Size = new System.Drawing.Size(86, 17);
+            this.topMostCheck.Size = new System.Drawing.Size(117, 19);
             this.topMostCheck.TabIndex = 14;
             this.topMostCheck.Text = "<Top most>";
             this.topMostCheck.UseVisualStyleBackColor = true;
@@ -351,9 +351,9 @@
             this.copyrightLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.copyrightLabel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.copyrightLabel.Location = new System.Drawing.Point(0, 378);
+            this.copyrightLabel.Location = new System.Drawing.Point(0, 382);
             this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(334, 18);
+            this.copyrightLabel.Size = new System.Drawing.Size(365, 18);
             this.copyrightLabel.TabIndex = 7;
             this.copyrightLabel.Text = "© 2020, Benedikt Müssig, mikrocontroller.net/topic/491973";
             this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -369,7 +369,7 @@
             this.bargraphBar.ForeColor = System.Drawing.Color.Green;
             this.bargraphBar.Location = new System.Drawing.Point(13, 130);
             this.bargraphBar.Name = "bargraphBar";
-            this.bargraphBar.Size = new System.Drawing.Size(310, 11);
+            this.bargraphBar.Size = new System.Drawing.Size(339, 13);
             this.bargraphBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.bargraphBar.TabIndex = 8;
             // 
@@ -386,7 +386,7 @@
             this.statisticsGroup.Controls.Add(this.minLabel);
             this.statisticsGroup.Location = new System.Drawing.Point(14, 224);
             this.statisticsGroup.Name = "statisticsGroup";
-            this.statisticsGroup.Size = new System.Drawing.Size(309, 46);
+            this.statisticsGroup.Size = new System.Drawing.Size(338, 46);
             this.statisticsGroup.TabIndex = 4;
             this.statisticsGroup.TabStop = false;
             this.statisticsGroup.Text = "<Statistics>";
@@ -394,7 +394,7 @@
             // maxValueLabel
             // 
             this.maxValueLabel.AutoSize = true;
-            this.maxValueLabel.Location = new System.Drawing.Point(150, 21);
+            this.maxValueLabel.Location = new System.Drawing.Point(169, 21);
             this.maxValueLabel.Name = "maxValueLabel";
             this.maxValueLabel.Size = new System.Drawing.Size(11, 13);
             this.maxValueLabel.TabIndex = 4;
@@ -411,7 +411,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(224, 16);
+            this.resetButton.Location = new System.Drawing.Point(247, 16);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
             this.resetButton.TabIndex = 5;
@@ -422,7 +422,7 @@
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(113, 21);
+            this.maxLabel.Location = new System.Drawing.Point(132, 21);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(31, 13);
             this.maxLabel.TabIndex = 1;
@@ -441,7 +441,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 396);
+            this.ClientSize = new System.Drawing.Size(365, 400);
             this.Controls.Add(this.statisticsGroup);
             this.Controls.Add(this.bargraphBar);
             this.Controls.Add(this.copyrightLabel);
