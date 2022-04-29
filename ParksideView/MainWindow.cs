@@ -320,8 +320,12 @@ namespace ParksideView
                 // Calculate the offset in seconds
                 TimeSpan delta = sample.ReceptionTime - recordingStart;
 
-                // Assemble the line, e.g.: 4.32,12.34E-3,V
-                // Start with the time offset
+                // Assemble the line, e.g.: 2022/04/29 10:25:03,4.32,12.34E-3,V
+                // Start with date and time
+                recordingBuffer.AppendFormat("{0} {1}", sample.ReceptionTime.ToLongDateString(), sample.ReceptionTime.ToLongTimeString());
+                // Followed by the delimiter
+                recordingBuffer.Append(GetCSVDelimiter());
+                // Continue with the time offset
                 recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
                     "{0:E}", delta.TotalSeconds);
                 // Followed by the delimiter
@@ -624,21 +628,7 @@ namespace ParksideView
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
-            // Write the date
-            recordingBuffer.Append(Language.CSVDate);
-            recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.AppendFormat("{0:00}.{1:00}.{2:0000}", recordingStart.Day, recordingStart.Month, recordingStart.Year);
-            recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.AppendLine();
-
-            // Write the time
-            recordingBuffer.Append(Language.CSVTime);
-            recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.AppendFormat("{0:00}:{1:00}:{2:00}:{3:000}",
-                recordingStart.Hour, recordingStart.Minute, recordingStart.Second, recordingStart.Millisecond);
-            recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.AppendLine();
-
+            // Write the interval
             recordingBuffer.Append(Language.CSVInterval);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
@@ -647,7 +637,9 @@ namespace ParksideView
             recordingBuffer.AppendLine();
             recordingBuffer.AppendLine();
 
-            // Write the CSV header (3 columns)
+            // Write the CSV header (4 columns)
+            recordingBuffer.Append(Language.CSVDateTime);
+            recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.Append(Language.CSVDelta);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.Append(Language.CSVValue);
