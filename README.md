@@ -1,9 +1,9 @@
 # ParksideView
-Program for connecting to and retrieving data from a Parkside PDM-300-C2 digital multimeter.
+Program for connecting to and retrieving data from a Parkside PDM-300-C2 or PDM-300-C3 digital multimeter.
 
 ## Overview
-ParksideView is a utility program that allows retrieving real-time measurement data from Parkside PDM-300-C2 digital multimeters.
-These multimeters were last sold internationally by the discounter LIDL in March, 2020.
+ParksideView is a utility program that allows retrieving real-time measurement data from Parkside PDM-300-C2 and PDM-300-C3 digital multimeters.
+The PDM-300-C2 multimeters were last sold internationally by the discounter LIDL in March, 2020. The PDM-300-C3 revision is currently being sold by LIDL (April 2022).
 Some are still available in some of LIDLs online shops at the time of writing (but not in Germany!).
 
 ## Features
