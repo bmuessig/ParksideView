@@ -46,8 +46,7 @@ namespace ParksideView
         public const string CSVValue = "Wert";
         public const string CSVDelta = "Zeitdifferenz (s)";
         public const string CSVInterval = "Intervall (s)";
-        public const string CSVTime = "Uhrzeit";
-        public const string CSVDate = "Datum";
+        public const string CSVDateTime = "Datum und Uhrzeit";
         public const string CSVSoftware = "Software";
         public const string CSVModel = "Modell";
         public const string ConnectionErrorText = "Port {0} konnte nicht geöffnet werden!\n\nFehler: {1}";
@@ -99,8 +98,7 @@ namespace ParksideView
         public const string CSVValue = "Value";
         public const string CSVDelta = "Time delta (s)";
         public const string CSVInterval = "Interval (s)";
-        public const string CSVTime = "Time";
-        public const string CSVDate = "Date";
+        public const string CSVDateTime = "Date and time";
         public const string CSVSoftware = "Software";
         public const string CSVModel = "Model";
         public const string ConnectionErrorText = "Port {0} could not be opened!\n\nError: {1}";
