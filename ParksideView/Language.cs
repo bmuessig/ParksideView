@@ -63,7 +63,7 @@ namespace ParksideView
         public const string ModeDiode = "Diode";
         public const string ModeContinuity = "Kontinuität";
         public const string ModeCurrent = "Strom";
-#else if PORTUGUESE // Compile with Portuguese Strings
+#elif PORTUGUESE // Compile with Portuguese Strings
         public const string ConnectionHeading = "Ligação";
         public const string PortLabel = "Porta:";
         public const string RefreshButton = "Actualizar";
