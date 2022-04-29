@@ -14,7 +14,7 @@ namespace ParksideView
 #if GERMAN // Compile with German strings
         public const string ConnectionHeading = "Verbindung";
         public const string PortLabel = "Port:";
-        public const string RefreshButton = "Aktualisieren";
+        public const string RefreshButton = "Neu laden";
         public const string StartButton = "Start";
         public const string PauseButton = "Pause";
         public const string StopButton = "Stop";
@@ -41,7 +41,7 @@ namespace ParksideView
         public const string DiscardDataTitle = "Daten verwerfen";
         public const string SaveDialogTitle = "Aufzeichnung speichern unter";
         public const string SaveDialogFilter = "CSV-Dateien|*.csv";
-        public const string CSVVersionFormat = "{0} {1} von Benedikt Muessig";
+        public const string CSVVersionFormat = "{0} {1} von Benedikt Muessig et al.";
         public const string CSVUnit = "Einheit";
         public const string CSVValue = "Wert";
         public const string CSVDelta = "Zeitdifferenz (s)";
@@ -93,7 +93,7 @@ namespace ParksideView
         public const string DiscardDataTitle = "Descartar dados";
         public const string SaveDialogTitle = "Salvar gravação como";
         public const string SaveDialogFilter = "Ficheiros CSV|*.csv";
-        public const string CSVVersionFormat = "{0} {1} por Benedikt Muessig";
+        public const string CSVVersionFormat = "{0} {1} por Benedikt Muessig et al.";
         public const string CSVUnit = "Unidade";
         public const string CSVValue = "Valor";
         public const string CSVDelta = "Tempo delta (s)";
@@ -145,7 +145,7 @@ namespace ParksideView
         public const string DiscardDataTitle = "Discard data";
         public const string SaveDialogTitle = "Save recording as";
         public const string SaveDialogFilter = "CSV files|*.csv";
-        public const string CSVVersionFormat = "{0} {1} by Benedikt Muessig";
+        public const string CSVVersionFormat = "{0} {1} by Benedikt Muessig et al.";
         public const string CSVUnit = "Unit";
         public const string CSVValue = "Value";
         public const string CSVDelta = "Time delta (s)";

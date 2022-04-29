@@ -75,20 +75,22 @@
             // 
             // valueLabel
             // 
-            this.valueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.valueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.valueLabel.AutoSize = true;
             this.valueLabel.Font = new System.Drawing.Font("Segoe UI", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valueLabel.Location = new System.Drawing.Point(3, 0);
             this.valueLabel.Name = "valueLabel";
-            this.valueLabel.Size = new System.Drawing.Size(230, 76);
+            this.valueLabel.Size = new System.Drawing.Size(241, 76);
             this.valueLabel.TabIndex = 0;
             this.valueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.valueLabel.Click += new System.EventHandler(this.valueLabel_Click);
             // 
             // readoutLayout
             // 
+            this.readoutLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.readoutLayout.BackColor = System.Drawing.Color.White;
             this.readoutLayout.ColumnCount = 2;
             this.readoutLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
@@ -97,53 +99,54 @@
             this.readoutLayout.Controls.Add(this.modeLabel, 0, 1);
             this.readoutLayout.Controls.Add(this.valueLabel, 0, 0);
             this.readoutLayout.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.readoutLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.readoutLayout.Location = new System.Drawing.Point(0, 0);
             this.readoutLayout.Name = "readoutLayout";
             this.readoutLayout.RowCount = 2;
             this.readoutLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67F));
             this.readoutLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.readoutLayout.Size = new System.Drawing.Size(338, 114);
+            this.readoutLayout.Size = new System.Drawing.Size(354, 114);
             this.readoutLayout.TabIndex = 1;
             this.readoutLayout.Click += new System.EventHandler(this.readoutLayout_Click);
             // 
             // unitLabel
             // 
-            this.unitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.unitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.unitLabel.AutoSize = true;
             this.unitLabel.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitLabel.Location = new System.Drawing.Point(239, 0);
+            this.unitLabel.Location = new System.Drawing.Point(250, 0);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(96, 76);
+            this.unitLabel.Size = new System.Drawing.Size(101, 76);
             this.unitLabel.TabIndex = 2;
             this.unitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.unitLabel.Click += new System.EventHandler(this.unitLabel_Click);
             // 
             // modeLabel
             // 
-            this.modeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.modeLabel.AutoSize = true;
             this.readoutLayout.SetColumnSpan(this.modeLabel, 2);
             this.modeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modeLabel.Location = new System.Drawing.Point(3, 76);
             this.modeLabel.Name = "modeLabel";
-            this.modeLabel.Size = new System.Drawing.Size(332, 38);
+            this.modeLabel.Size = new System.Drawing.Size(348, 38);
             this.modeLabel.TabIndex = 3;
             this.modeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.modeLabel.Click += new System.EventHandler(this.modeLabel_Click);
             // 
             // readoutPanel
             // 
+            this.readoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.readoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.readoutPanel.Controls.Add(this.readoutLayout);
             this.readoutPanel.Location = new System.Drawing.Point(13, 11);
             this.readoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.readoutPanel.Name = "readoutPanel";
-            this.readoutPanel.Size = new System.Drawing.Size(340, 116);
+            this.readoutPanel.Size = new System.Drawing.Size(356, 116);
             this.readoutPanel.TabIndex = 2;
             // 
             // recordToggleButton
@@ -159,6 +162,8 @@
             // 
             // acquisitionGroup
             // 
+            this.acquisitionGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.acquisitionGroup.Controls.Add(this.acquisitionPauseButton);
             this.acquisitionGroup.Controls.Add(this.intervalLabel);
             this.acquisitionGroup.Controls.Add(this.csvFormatGroup);
@@ -167,7 +172,7 @@
             this.acquisitionGroup.Controls.Add(this.recordToggleButton);
             this.acquisitionGroup.Location = new System.Drawing.Point(14, 276);
             this.acquisitionGroup.Name = "acquisitionGroup";
-            this.acquisitionGroup.Size = new System.Drawing.Size(339, 96);
+            this.acquisitionGroup.Size = new System.Drawing.Size(355, 96);
             this.acquisitionGroup.TabIndex = 6;
             this.acquisitionGroup.TabStop = false;
             this.acquisitionGroup.Text = "<Acquisition>";
@@ -177,7 +182,7 @@
             this.acquisitionPauseButton.Location = new System.Drawing.Point(124, 18);
             this.acquisitionPauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.acquisitionPauseButton.Name = "acquisitionPauseButton";
-            this.acquisitionPauseButton.Size = new System.Drawing.Size(96, 22);
+            this.acquisitionPauseButton.Size = new System.Drawing.Size(111, 22);
             this.acquisitionPauseButton.TabIndex = 8;
             this.acquisitionPauseButton.Text = "<P/C>";
             this.acquisitionPauseButton.UseVisualStyleBackColor = true;
@@ -187,7 +192,7 @@
             // 
             this.intervalLabel.Location = new System.Drawing.Point(5, 50);
             this.intervalLabel.Name = "intervalLabel";
-            this.intervalLabel.Size = new System.Drawing.Size(94, 13);
+            this.intervalLabel.Size = new System.Drawing.Size(113, 13);
             this.intervalLabel.TabIndex = 10;
             this.intervalLabel.Text = "<Interval>";
             // 
@@ -195,7 +200,7 @@
             // 
             this.csvFormatGroup.Controls.Add(this.csvFormatUSRadio);
             this.csvFormatGroup.Controls.Add(this.csvFormatDERadio);
-            this.csvFormatGroup.Location = new System.Drawing.Point(226, 18);
+            this.csvFormatGroup.Location = new System.Drawing.Point(241, 11);
             this.csvFormatGroup.Name = "csvFormatGroup";
             this.csvFormatGroup.Size = new System.Drawing.Size(107, 60);
             this.csvFormatGroup.TabIndex = 10;
@@ -226,13 +231,13 @@
             // 
             this.acquisitionStatusLabel.Location = new System.Drawing.Point(5, 73);
             this.acquisitionStatusLabel.Name = "acquisitionStatusLabel";
-            this.acquisitionStatusLabel.Size = new System.Drawing.Size(292, 13);
+            this.acquisitionStatusLabel.Size = new System.Drawing.Size(343, 13);
             this.acquisitionStatusLabel.TabIndex = 5;
             this.acquisitionStatusLabel.Text = "<Acquisition-Status>";
             // 
             // intervalNumeric
             // 
-            this.intervalNumeric.Location = new System.Drawing.Point(145, 45);
+            this.intervalNumeric.Location = new System.Drawing.Point(124, 45);
             this.intervalNumeric.Maximum = new decimal(new int[] {
             172800,
             0,
@@ -244,7 +249,7 @@
             0,
             0});
             this.intervalNumeric.Name = "intervalNumeric";
-            this.intervalNumeric.Size = new System.Drawing.Size(75, 22);
+            this.intervalNumeric.Size = new System.Drawing.Size(66, 22);
             this.intervalNumeric.TabIndex = 9;
             this.intervalNumeric.Value = new decimal(new int[] {
             1,
@@ -264,16 +269,16 @@
             this.connectionGroup.Controls.Add(this.portsListBox);
             this.connectionGroup.Location = new System.Drawing.Point(13, 149);
             this.connectionGroup.Name = "connectionGroup";
-            this.connectionGroup.Size = new System.Drawing.Size(199, 69);
+            this.connectionGroup.Size = new System.Drawing.Size(228, 69);
             this.connectionGroup.TabIndex = 0;
             this.connectionGroup.TabStop = false;
             this.connectionGroup.Text = "<Connection>";
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(125, 40);
+            this.connectButton.Location = new System.Drawing.Point(152, 40);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(66, 23);
+            this.connectButton.Size = new System.Drawing.Size(70, 23);
             this.connectButton.TabIndex = 3;
             this.connectButton.Text = "<S/P>";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -283,16 +288,16 @@
             // 
             this.connectionStatusLabel.Location = new System.Drawing.Point(6, 45);
             this.connectionStatusLabel.Name = "connectionStatusLabel";
-            this.connectionStatusLabel.Size = new System.Drawing.Size(135, 13);
+            this.connectionStatusLabel.Size = new System.Drawing.Size(140, 13);
             this.connectionStatusLabel.TabIndex = 3;
             this.connectionStatusLabel.Text = "<Connection-Status>";
             // 
             // refreshPortsButton
             // 
             this.refreshPortsButton.AutoEllipsis = true;
-            this.refreshPortsButton.Location = new System.Drawing.Point(125, 15);
+            this.refreshPortsButton.Location = new System.Drawing.Point(152, 15);
             this.refreshPortsButton.Name = "refreshPortsButton";
-            this.refreshPortsButton.Size = new System.Drawing.Size(66, 23);
+            this.refreshPortsButton.Size = new System.Drawing.Size(70, 23);
             this.refreshPortsButton.TabIndex = 2;
             this.refreshPortsButton.Text = "<Ref>";
             this.refreshPortsButton.UseVisualStyleBackColor = true;
@@ -312,16 +317,18 @@
             this.portsListBox.FormattingEnabled = true;
             this.portsListBox.Location = new System.Drawing.Point(59, 16);
             this.portsListBox.Name = "portsListBox";
-            this.portsListBox.Size = new System.Drawing.Size(60, 21);
+            this.portsListBox.Size = new System.Drawing.Size(87, 21);
             this.portsListBox.TabIndex = 1;
             // 
             // windowGroup
             // 
+            this.windowGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.windowGroup.Controls.Add(this.minimizeButton);
             this.windowGroup.Controls.Add(this.topMostCheck);
-            this.windowGroup.Location = new System.Drawing.Point(218, 149);
+            this.windowGroup.Location = new System.Drawing.Point(247, 149);
             this.windowGroup.Name = "windowGroup";
-            this.windowGroup.Size = new System.Drawing.Size(134, 69);
+            this.windowGroup.Size = new System.Drawing.Size(121, 69);
             this.windowGroup.TabIndex = 13;
             this.windowGroup.TabStop = false;
             this.windowGroup.Text = "<Window>";
@@ -330,7 +337,7 @@
             // 
             this.minimizeButton.Location = new System.Drawing.Point(8, 39);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(120, 23);
+            this.minimizeButton.Size = new System.Drawing.Size(107, 23);
             this.minimizeButton.TabIndex = 15;
             this.minimizeButton.Text = "<Minimize>";
             this.minimizeButton.UseVisualStyleBackColor = true;
@@ -340,7 +347,7 @@
             // 
             this.topMostCheck.Location = new System.Drawing.Point(11, 18);
             this.topMostCheck.Name = "topMostCheck";
-            this.topMostCheck.Size = new System.Drawing.Size(117, 19);
+            this.topMostCheck.Size = new System.Drawing.Size(104, 19);
             this.topMostCheck.TabIndex = 14;
             this.topMostCheck.Text = "<Top most>";
             this.topMostCheck.UseVisualStyleBackColor = true;
@@ -353,9 +360,9 @@
             this.copyrightLabel.ForeColor = System.Drawing.Color.SaddleBrown;
             this.copyrightLabel.Location = new System.Drawing.Point(0, 382);
             this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(365, 18);
+            this.copyrightLabel.Size = new System.Drawing.Size(381, 18);
             this.copyrightLabel.TabIndex = 7;
-            this.copyrightLabel.Text = "© 2020, Benedikt Müssig, mikrocontroller.net/topic/491973";
+            this.copyrightLabel.Text = "© 2020-22, Benedikt Müssig et al., mikrocontroller.net/topic/491973";
             this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.copyrightLabel.Click += new System.EventHandler(this.copyrightLabel_Click);
             // 
@@ -366,10 +373,12 @@
             // 
             // bargraphBar
             // 
+            this.bargraphBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.bargraphBar.ForeColor = System.Drawing.Color.Green;
             this.bargraphBar.Location = new System.Drawing.Point(13, 130);
             this.bargraphBar.Name = "bargraphBar";
-            this.bargraphBar.Size = new System.Drawing.Size(339, 13);
+            this.bargraphBar.Size = new System.Drawing.Size(355, 13);
             this.bargraphBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.bargraphBar.TabIndex = 8;
             // 
@@ -379,6 +388,8 @@
             // 
             // statisticsGroup
             // 
+            this.statisticsGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.statisticsGroup.Controls.Add(this.maxValueLabel);
             this.statisticsGroup.Controls.Add(this.minValueLabel);
             this.statisticsGroup.Controls.Add(this.resetButton);
@@ -386,7 +397,7 @@
             this.statisticsGroup.Controls.Add(this.minLabel);
             this.statisticsGroup.Location = new System.Drawing.Point(14, 224);
             this.statisticsGroup.Name = "statisticsGroup";
-            this.statisticsGroup.Size = new System.Drawing.Size(338, 46);
+            this.statisticsGroup.Size = new System.Drawing.Size(354, 46);
             this.statisticsGroup.TabIndex = 4;
             this.statisticsGroup.TabStop = false;
             this.statisticsGroup.Text = "<Statistics>";
@@ -394,7 +405,7 @@
             // maxValueLabel
             // 
             this.maxValueLabel.AutoSize = true;
-            this.maxValueLabel.Location = new System.Drawing.Point(169, 21);
+            this.maxValueLabel.Location = new System.Drawing.Point(196, 21);
             this.maxValueLabel.Name = "maxValueLabel";
             this.maxValueLabel.Size = new System.Drawing.Size(11, 13);
             this.maxValueLabel.TabIndex = 4;
@@ -411,7 +422,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(247, 16);
+            this.resetButton.Location = new System.Drawing.Point(273, 16);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
             this.resetButton.TabIndex = 5;
@@ -422,7 +433,7 @@
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(132, 21);
+            this.maxLabel.Location = new System.Drawing.Point(159, 21);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(31, 13);
             this.maxLabel.TabIndex = 1;
@@ -441,7 +452,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 400);
+            this.ClientSize = new System.Drawing.Size(381, 400);
             this.Controls.Add(this.statisticsGroup);
             this.Controls.Add(this.bargraphBar);
             this.Controls.Add(this.copyrightLabel);
