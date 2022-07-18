@@ -695,9 +695,10 @@ namespace ParksideView
 
                 // Continuity Ohms
                 case Mode.ContinuityOhm:
-                    // 0000 0100: Ohm [000.0] E-1
+                    // 0000 0001: Ohm [000.0] E-1
+                    // 0000 0100: Only for OL
                     // There is only a single range, make sure it is active
-                    if (sample.Range != Range.C)
+                    if (sample.Range != Range.A && sample.Range != Range.C)
                         return false;
 
                     // Set the unit, prefix, exponent and precision
