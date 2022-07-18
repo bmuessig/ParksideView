@@ -322,7 +322,7 @@ namespace ParksideView
 
                 // Assemble the line, e.g.: 2022/04/29 10:25:03,4.32,12.34E-3,V
                 // Start with date and time
-                recordingBuffer.AppendFormat("{0} {1}", sample.ReceptionTime.ToLongDateString(), sample.ReceptionTime.ToLongTimeString());
+                recordingBuffer.AppendFormat(GetCSVDateFormatted(sample.ReceptionTime));
                 // Followed by the delimiter
                 recordingBuffer.Append(GetCSVDelimiter());
                 // Continue with the time offset
@@ -617,15 +617,13 @@ namespace ParksideView
             // Write the model
             recordingBuffer.Append(Language.CSVModel);
             recordingBuffer.Append(GetCSVDelimiter());
-            recordingBuffer.Append("Parkside PDM-300-C2");
-            recordingBuffer.Append(GetCSVDelimiter());
+            recordingBuffer.Append("Parkside PDM-300");
             recordingBuffer.AppendLine();
 
             // Write the version
             recordingBuffer.Append(Language.CSVSoftware);
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat(Language.CSVVersionFormat, Application.ProductName, Application.ProductVersion);
-            recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
 
             // Write the interval
@@ -633,7 +631,6 @@ namespace ParksideView
             recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendFormat(new NumberFormatInfo() { NumberDecimalSeparator = GetCSVFractionalSeparator().ToString(), NumberDecimalDigits = 2 },
                         "{0:E}", acquisitionTimer.Interval / 1000d);
-            recordingBuffer.Append(GetCSVDelimiter());
             recordingBuffer.AppendLine();
             recordingBuffer.AppendLine();
 
@@ -806,6 +803,16 @@ namespace ParksideView
         private char GetCSVDelimiter()
         {
             return csvFormatDERadio.Checked ? ';' : ',';
+        }
+
+        /// <summary>
+        /// Returns the localized CSV date.
+        /// </summary>
+        /// <param name="date">The date to format.</param>
+        /// <returns>The CSV-formatted date.</returns>
+        private string GetCSVDateFormatted(DateTime date)
+        {
+            return String.Format(csvFormatDERadio.Checked ? "{0:dd\\/MM\\/yyyy HH\\:mm\\:ss}" : "{0:yyyy\\/MM\\/dd HH\\:mm\\:ss}", date);
         }
 
         /// <summary>
