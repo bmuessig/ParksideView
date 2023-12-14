@@ -39,7 +39,7 @@ Diese Litzen können dann z.B. über ein kleines Loch auf der Rückseite des Geh
 ### Testpunkte
 Im folgenden Bild sind die zwei Testpunkte auf der Multimeterplatine erkennbar, mit denen der Optokoppler verbunden wird:
 
-![TX und GND sind beschriftet und befinden sich im oberen, rechten Teil der Platine](https://www.mikrocontroller.net/attachment/450706/Verbindungen.jpg)
+![TX und GND sind beschriftet und befinden sich im oberen, rechten Teil der Platine](Connections.jpg)
 
 ### Löten
 Um den Multimeter mit dem PC zu verbinden, muss eine Litze vom TX-Testpunkt des Multimters zum IN1-Pad des Optokopplers verbunden werden.
