@@ -40,7 +40,7 @@ This can for instance be accomplished by drilling a tiny hole into the backside 
 ### Test points
 The image below shows the two test points to connect the opto-isolator to:
 
-![TX and GND are in the upper right of the PCB and are clearly labeled](https://www.mikrocontroller.net/attachment/450706/Verbindungen.jpg)
+![TX and GND are in the upper right of the PCB and are clearly labeled](Connections.jpg)
 
 ### Soldering
 To connect the multimeter to your PC, solder a wire from the TX test point to the IN1 pad of the opto-isolator.
