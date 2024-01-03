@@ -2,9 +2,9 @@
 Program for connecting to and retrieving data from a Parkside PDM-300-C2 or PDM-300-C3 digital multimeter.
 
 ## Overview
-ParksideView is a utility program that allows retrieving real-time measurement data from Parkside PDM-300-C2 and PDM-300-C3 digital multimeters.
-The PDM-300-C2 multimeters were last sold internationally by the discounter LIDL in March, 2020. The PDM-300-C3 revision is currently being sold by LIDL (April 2022).
-Some are still available in some of LIDLs online shops at the time of writing (but not in Germany!).
+ParksideView is a utility program that allows retrieving real-time measurement data from budget Parkside PDM-300-C2 and PDM-300-C3 digital multimeters.
+The PDM-300-C2 multimeters were last sold internationally by the discounter LIDL in March, 2020.
+The PDM-300-C3 revision is sold by LIDL multiple times a year for around 13€.
 
 ## Features
 * Big, realtime readout for the value displayed on the multimeter
@@ -12,7 +12,8 @@ Some are still available in some of LIDLs online shops at the time of writing (b
 * Recording of values to a CSV formatted file
 * Resettable Min/Max statistics
 * Custom acquisition speeds
-* Runs on Windows 7, 8, 10 (urgh) and Linux (via Mono: https://www.mono-project.com/)
+* Runs on Windows 7, 8, 10, 11 and Linux (via Mono: https://www.mono-project.com/)
+* Localized to German and Portuguese besides English
 * German and US/international CSV formats selectable
 * Automatic configuration of the serial interface
 * Synchronization to the data stream, graceful error handling and display blanking on error or timeout
@@ -57,6 +58,6 @@ You can use the device manager on Windows or dmesg on Linux to find the correct 
 
 ## Sharing
 When sharing the program, please always include a link to either
-https://github.com/benedikts-workshop/ParksideView or https://www.mikrocontroller.net/topic/491973
+https://github.com/bmuessig/ParksideView or https://www.mikrocontroller.net/topic/491973
 
 Have fun!
