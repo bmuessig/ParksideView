@@ -2,8 +2,8 @@
 Ein Programm, um Daten von Parkside PDM-300-C2 Multimetern abzurufen und aufzuzeichnen.
 
 ## Übersicht
-ParksideView ist ein Hilfsprogramm, das Messdaten in Echtzeit von Parkside PDM-300-C2 Digitalmultimetern abrufen kann.
-Diese Multimeter wurden im März 2020 international vom Discounter LIDL verkauft.
+ParksideView ist ein Hilfsprogramm, das Messdaten in Echtzeit von Parkside PDM-300-C2 und PDM-300-C3 Digitalmultimetern abrufen kann.
+Diese Multimeter sind periodisch bei LIDL online und im Laden für ungefähr 13€ verfügbar.
 
 ## Funktionen
 * Große Echtzeitanzeige des aktuell auf dem Multimeter angezeigten Wertes
@@ -11,7 +11,8 @@ Diese Multimeter wurden im März 2020 international vom Discounter LIDL verkauft
 * Aufzeichnen der Messdaten in eine CSV-formatierte Datei
 * Zurücksetzbare Min/Max-Statistik
 * Einstellbare Aufzeichnungsgeschwindigkeiten
-* Ausführbar auf Windows 7, 8, 10 (nicht getestet) und Linux (via Mono: https://www.mono-project.com/)
+* Ausführbar auf Windows 7, 8, 10, 11 und Linux (via Mono: https://www.mono-project.com/)
+* Lokalisiert für Deutsch, Englisch und Portugiesisch
 * CSV Format zwischen Deutsch und and US/International wählbar
 * Automatische Konfiguration der seriellen Schnittstelle
 * Synchronisierung zum Datenstrom, guter Umgang mit Fehlern, Ausblenden des Displays bei keinen/ungültigen Daten
@@ -56,6 +57,6 @@ Im Geräte-Manager unter Windows, oder mittels dmesg auf Linux kann der korrekte
 Auf Linux lautet dieser meist /dev/ttyUSB0.
 
 ## Teilen
-Beim Teilen des Programms, bitte https://github.com/benedikts-workshop/ParksideView oder https://www.mikrocontroller.net/topic/491973 verlinken.
+Beim Teilen des Programms, bitte https://github.com/bmuessig/ParksideView oder https://www.mikrocontroller.net/topic/491973 verlinken.
 
 Viel Spaß!
